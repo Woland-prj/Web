@@ -2,8 +2,6 @@
 
 ## Global information
 
----
-
 **This is a test blog repository**
 
 Liceum *Infotech* support
@@ -11,8 +9,6 @@ Liceum *Infotech* support
 **Group:** 10-1
 
 **Name:** Zimin Nikita
-
----
 
 ## Goals
 
