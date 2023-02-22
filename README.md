@@ -4,7 +4,7 @@
 
 **This is a test blog repository**
 
-Liceum *Infotech* support
+Lyceum *Infotech* support
 
 **Group:** 10-1
 
