@@ -1,6 +1,7 @@
 .content {
     margin: 0;
     padding: 0;
+    background: #F7F7F7;
 }
 
 .content__text_font_lora {
@@ -103,4 +104,90 @@
     text-align: center;
     color: #768088;
     text-decoration: none;
+}
+
+.sub-nav__background {
+    background: #FFFFFF;
+}
+
+.article-section {
+    width: 66.1%;
+    margin: auto;
+    /* height: 1255px; */
+}
+
+.article-section__title {
+    margin: 60px 0 23px 0;
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.35;
+    letter-spacing: 2px;
+}
+
+.article-section__title::after {
+    display: block;
+    content: '';
+    width: 188px;
+    height: 1px;
+    background: #DEDEDE;
+    margin: 0 auto 0 auto;
+    margin-top: 16px;
+}
+
+.article-section__block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.article-feature {
+    background: url(../images/the_road_ahead_image.png);
+    width: 420px;
+    height: 240px;
+    padding: 20px;
+    color: #FFFFFF;
+}
+
+.article-feature_left {
+    background: url(../images/the_road_ahead_image.png);
+}
+
+.article-feature_right {
+    background: url(../images/from_top_down_image.png);
+}
+
+.article-feature__title{
+    margin: 137px 0 6px 0;
+    font-size: 27px;
+    line-height: 1.111;
+}
+
+.article-feature__description {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    line-height: 1.785;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.article-feature__avatar {
+    border-radius: 50%;
+}
+
+.article-feature__autor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.article-feature__autor_align {
+    display: inherit;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-feature__bottom-text {
+    font-size: 12px;
+    line-height: 2.92;
+    margin-left: 10px;
 }
