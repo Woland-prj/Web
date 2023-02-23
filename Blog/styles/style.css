@@ -1,37 +1,32 @@
-* {
+.content {
     margin: 0;
     padding: 0;
 }
 
-h1 {
-    margin: 0 0 20px 0;
+.content__text_font_lora {
+    font-family: 'Lora', serif;
     font-style: normal;
-    font-family: 'Lora';
     font-weight: 400;
-    font-size: 50px;
-    letter-spacing: 2px;
-    font-weight: 400;
-    line-height: 51px;
 }
 
-p {
-    margin: 0;
+.content__text_font_oxygen {
+    font-family: 'Oxygen', sans-serif;
+    font-style: normal;
+    font-weight: 400;
 }
 
 .header {
-    background: url(../images/header_background.png) cover center;
-    /* background-size: cover;
-    background-position: center; */
+    background: url(../images/header_background.png);
+    background-size: cover;
+    background-position: center;
     height: 500px;
     width: auto;
-    /* display: flex;
-    align-items: center;
-    flex-direction: column; */
+    padding-top: 20px;
     color: #FFFFFF;
 }
 
 .header__block {
-    width: 67%;
+    width: 64%;
     margin: 0 auto 0 auto;
 }
 
@@ -39,59 +34,61 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
 }
 
 .header__block_title {
     margin-top: 131px;
-    height: 100%;
     text-align: center;
-    /* font-family: 'Oxygen';
-    font-style: normal;
-    font-weight: 400; */
 }
 
-/* .header_menu span {
-    font-family: 'Lora', serif;
+.header__logo {
     font-size: 26px;
-    line-height: 26px;
+    line-height: 1;
 }
 
-nav {
-    width: 336px;
+.header__menu {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    
+    width: 336px;
 }
 
-nav a {
-    color: #FFFFFF;
+.header__link {
     text-decoration: none;
-    font-family: 'Oxygen', serif;
-    font-style: normal;
     text-transform: uppercase;
     font-size: 12px;
+    line-height: 1.67;
+    color: inherit;
+    letter-spacing: 0.6px;
 }
 
-.header_title p {
+.header__title {
+    margin: 0 0 20px 0;
+    font-size: 50px;
+    letter-spacing: 2px;
+    line-height: 1.02;
+}
+
+.header__description {
     font-size: 17px;
     line-height: 1.18;
     color: rgba(255, 255, 255, 0.63);
+    margin: 0;
 }
 
-.header_title button {
+.header__button {
     width: 167px;
     height: 44px;
     background: #DD783F;
+    color: #FFFFFF;
     border-radius: 3px;
     border: none;
     margin: 31px;
     font-size: 13px;
     line-height: 1.54;
-    color: #FFFFFF;
 }
 
-.sub_nav {
+.sub-nav {
     margin: 0 auto 0 auto;
     width: 59.6%;
     height: 65px;
@@ -100,13 +97,10 @@ nav a {
     justify-content: space-between;
 }
 
-.sub_nav a {
-    font-family: 'Lora';
-    font-style: normal;
-    font-weight: 400;
+.sub-nav__link {
     font-size: 14px;
     line-height: 1.43;
     text-align: center;
     color: #768088;
     text-decoration: none;
-} */
+}
