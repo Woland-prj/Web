@@ -97,3 +97,47 @@
 .article__content_last {
     margin-bottom: 140px
 }
+
+.footer {
+    background: url(../images/footer_background.png);
+    background-size: cover;
+    background-position: center;    
+    height: 89px;
+    width: auto;
+    color: #FFFFFF;
+}
+.footer__style {
+    background: rgba(35, 47, 56, 0.6);
+    height: 100%;
+}
+
+.footer__block {
+    margin: auto;
+    width: 64%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__logo {
+    font-size: 26px;
+    line-height: 1;
+}
+
+.footer__menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 336px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer__link {
+    text-transform: uppercase;
+    font-size: 11px;
+    line-height: 2.36;
+    letter-spacing: 1px;
+    text-align: right;
+    letter-spacing: 1px;
+}
