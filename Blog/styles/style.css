@@ -127,6 +127,20 @@
     color: #FFFFFF;
 }
 
+.article-feature_metka {
+    width: 87px;
+    height: 26px;
+    display: block;
+    border-radius: 2px;
+    background: #DD783F;
+    text-align: center;
+    position: absolute;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 2.16;
+    
+}
+
 .article-feature_left {
     background: url(../images/the_road_ahead_image.png);
 }
