@@ -24,11 +24,12 @@
 .footer {
     background: url(../images/footer_background.png);
     background-size: cover;
-    background-position: center;    
+    background-position: center;
     height: 89px;
     width: auto;
     color: #FFFFFF;
 }
+
 .footer__style {
     background: rgba(35, 47, 56, 0.6);
     height: 100%;
