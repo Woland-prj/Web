@@ -91,8 +91,8 @@
 
 .article-section {
     width: 66.1%;
-    margin: auto;
-    height: 1255px;
+    margin: 0 auto 108px auto ;
+    
 }
 
 .article-section__title {
