@@ -44,129 +44,42 @@
     <article class="article-section">
         <h2 class="article-section__title content__text_font_oxygen">Featured Posts</h2>
         <div class="article-section__block article-section__block_feature">
-            <div class="article-feature article-feature_left">
+            {{ range .Featured }}
+            <div class="{{ .ImgModifer }}">
+                <span class="{{ .MetkaModifer }}">{{ .Metka }}</span>
                 <a href="the-road-ahead.html" class="content__link">
-                    <h3 class="article-feature__title content__text_font_lora">The Road Ahead</h3>
+                    <h3 class="article-feature__title content__text_font_lora">{{ .Title }}</h3>
                 </a>
-                <p class="article-feature__description content__text_font_oxygen">The road ahead might be paved - it
-                    might not be.</p>
+                <p class="article-feature__description content__text_font_oxygen">{{ .Subtitle }}</p>
                 <div class="article-feature__autor">
                     <div class="article__autor_align">
-                        <img class="article-feature__avatar" src="images/Mat_Vogels_avatar.jpg" alt="Mat Vogels avatar">
-                        <span class="article-feature__bottom-text content__text_font_oxygen">Mat Vogels</span>
+                        <img class="article-feature__avatar" src="{{ .AuthorImg }}" alt="{{ .Author }} avatar">
+                        <span class="article-feature__bottom-text content__text_font_oxygen">{{ .Author }}</span>
                     </div>
-                    <span class="article-feature__bottom-text content__text_font_oxygen">September 25, 2015</span>
+                    <span class="article-feature__bottom-text content__text_font_oxygen">{{ .PubDate }}</span>
                 </div>
             </div>
-            <div class="article-feature article-feature_right">
-                <span class="article-feature_metka content__text_font_oxygen">Adventure</span>
-                <h3 class="article-feature__title content__text_font_lora">From Top Down</h3>
-                <p class="article-feature__description content__text_font_oxygen">Once a year, go someplace you’ve never
-                    been before.</p>
-                <div class="article-feature__autor">
-                    <div class="article__autor_align">
-                        <img class="article-feature__avatar" src="images/William_Wong_avatar.jpg"
-                            alt="William Wong avatar">
-                        <span class="article-feature__bottom-text content__text_font_oxygen">William Wong</span>
-                    </div>
-                    <span class="article-feature__bottom-text content__text_font_oxygen">September 25, 2015</span>
-                </div>
-            </div>
+            {{ end }}
         </div>
         <h2 class="article-section__title content__text_font_oxygen">Most Recent</h2>
         <div class="article-section__block article-section__block_recent">
+            {{ range .Recent }}
             <div class="article-recent">
-                <img src="images/still_standing_tall_image.jpg" alt="Still Standing Tall image">
+                <img src="{{ .MainImg }}" alt="{{ .Title }} image">
                 <div class="article-recent__text">
-                    <h3 class="article-recent__title content__text_font_lora">Still Standing Tall</h3>
-                    <p class="article-recent__description content__text_font_oxygen">Life begins at the end of your
-                        comfort zone.</p>
+                    <h3 class="article-recent__title content__text_font_lora">{{ .Title }}</h3>
+                    <p class="article-recent__description content__text_font_oxygen">{{ .Subtitle }}</p>
                 </div>
                 <div class="article-recent__bottom-text">
                     <div class="article__autor_align">
-                        <img class="article-recent__avatar" src="images/William_Wong_avatar.jpg"
-                            alt="William Wong avatar">
-                        <span class="article-recent__name content__text_font_oxygen">William Wong</span>
+                        <img class="article-recent__avatar" src="{{ .AuthorImg }}"
+                            alt="{{ .Author }} avatar">
+                        <span class="article-recent__name content__text_font_oxygen">{{ .Author }}</span>
                     </div>
-                    <span class="article-recent__date content__text_font_oxygen">9/25/2015</span>
+                    <span class="article-recent__date content__text_font_oxygen">{{ .PubDate }}</span>
                 </div>
             </div>
-            <div class="article-recent">
-                <img src="images/sunny_side_up_image.png" alt="Sunny Side Up image">
-                <div class="article-recent__text">
-                    <h3 class="article-recent__title content__text_font_lora">Sunny Side Up</h3>
-                    <p class="article-recent__description content__text_font_oxygen">No place is ever as bad as they
-                        tell you it’s going to be.</p>
-                </div>
-                <div class="article-recent__bottom-text">
-                    <div class="article__autor_align">
-                        <img class="article-recent__avatar" src="images/Mat_Vogels_avatar.jpg" alt="Mat Vogels avatar">
-                        <span class="article-recent__name content__text_font_oxygen">Mat Vogels</span>
-                    </div>
-                    <span class="article-recent__date content__text_font_oxygen">9/25/2015</span>
-                </div>
-            </div>
-            <div class="article-recent">
-                <img src="images/water_falls_image.png" alt="Water Falls image">
-                <div class="article-recent__text">
-                    <h3 class="article-recent__title content__text_font_lora">Water Falls</h3>
-                    <p class="article-recent__description content__text_font_oxygen">We travel not to escape life, but
-                        for life not to escape us.</p>
-                </div>
-                <div class="article-recent__bottom-text">
-                    <div class="article__autor_align">
-                        <img class="article-recent__avatar" src="images/Mat_Vogels_avatar.jpg" alt="Mat Vogels avatar">
-                        <span class="article-recent__name content__text_font_oxygen">Mat Vogels</span>
-                    </div>
-                    <span class="article-recent__date content__text_font_oxygen">9/25/2015</span>
-                </div>
-            </div>
-            <div class="article-recent">
-                <img src="images/through_the_mist_image.png" alt="Through the Mist image">
-                <div class="article-recent__text">
-                    <h3 class="article-recent__title content__text_font_lora">Through the Mist</h3>
-                    <p class="article-recent__description content__text_font_oxygen">Travel makes you see what a tiny
-                        place you occupy in the world.</p>
-                </div>
-                <div class="article-recent__bottom-text">
-                    <div class="article__autor_align">
-                        <img class="article-recent__avatar" src="images/William_Wong_avatar.jpg"
-                            alt="William Wong avatar">
-                        <span class="article-recent__name content__text_font_oxygen">William Wong</span>
-                    </div>
-                    <span class="article-recent__date content__text_font_oxygen">9/25/2015</span>
-                </div>
-            </div>
-            <div class="article-recent">
-                <img src="images/awaken_early_image.png" alt="Awaken Early image">
-                <div class="article-recent__text">
-                    <h3 class="article-recent__title content__text_font_lora">Awaken Early</h3>
-                    <p class="article-recent__description content__text_font_oxygen">Not all those who wander are lost.
-                    </p>
-                </div>
-                <div class="article-recent__bottom-text">
-                    <div class="article__autor_align">
-                        <img class="article-recent__avatar" src="images/Mat_Vogels_avatar.jpg" alt="Mat Vogels avatar">
-                        <span class="article-recent__name content__text_font_oxygen">Mat Vogels</span>
-                    </div>
-                    <span class="article-recent__date content__text_font_oxygen">9/25/2015</span>
-                </div>
-            </div>
-            <div class="article-recent">
-                <img src="images/try_it_always_image.jpg" alt="Try it Always image">
-                <div class="article-recent__text">
-                    <h3 class="article-recent__title content__text_font_lora">Try it Always</h3>
-                    <p class="article-recent__description content__text_font_oxygen">The world is a book, and those who
-                        do not travel read only one page.</p>
-                </div>
-                <div class="article-recent__bottom-text">
-                    <div class="article__autor_align">
-                        <img class="article-recent__avatar" src="images/Mat_Vogels_avatar.jpg" alt="Mat Vogels avatar">
-                        <span class="article-recent__name content__text_font_oxygen">Mat Vogels</span>
-                    </div>
-                    <span class="article-recent__date content__text_font_oxygen">9/25/2015</span>
-                </div>
-            </div>
+            {{ end }}
         </div>
     </article>
     <footer class="footer">     
