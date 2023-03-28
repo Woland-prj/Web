@@ -13,7 +13,7 @@ func main() {
 	mux.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
 	mux.HandleFunc("/home", index)
-	//mux.HandleFunc("/post", post)
+	mux.HandleFunc("/post", post)
 
 	log.Println("Start server at port " + port)
 	err := http.ListenAndServe(port, mux)
