@@ -1,6 +1,8 @@
 package main
 
 import (
+	_ "github.com/go-sql-driver/mysql" // Импортируем для возможности подключения к MySQL
+    "github.com/jmoiron/sqlx"
 	"log"
 	"net/http"
 )
@@ -20,4 +22,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func openDB() (*sql.DB, error) {
+	//return sql.Open("mysql", "что-то сложное")
 }
