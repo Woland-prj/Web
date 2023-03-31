@@ -4,6 +4,8 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+
+	"github.com/jmoiron/sqlx"
 )
 
 type indexData struct {
@@ -12,23 +14,21 @@ type indexData struct {
 }
 
 type featuredPostData struct {
-	Title        string
-	Subtitle     string
-	ImgModifer   string
-	Author       string
-	AuthorImg    string
-	PubDate      string
-	Metka        string
-	MetkaModifer string
+	Title      string `db:"title"`
+	Subtitle   string `db:"subtitle"`
+	ImgModifer string `db:"image_url"`
+	Author     string `db:"author"`
+	AuthorImg  string `db:"author_url"`
+	PubDate    string `db:"pub_date"`
 }
 
 type recentPostData struct {
-	Title     string
-	Subtitle  string
-	MainImg   string
-	Author    string
-	AuthorImg string
-	PubDate   string
+	Title     string `db:"title"`
+	Subtitle  string `db:"subtitle"`
+	MainImg   string `db:"image_url"`
+	Author    string `db:"author"`
+	AuthorImg string `db:"author_url"`
+	PubDate   string `db:"pub_date"`
 }
 
 type postData struct {
@@ -42,82 +42,124 @@ type postParagraph struct {
 	Paragraph string
 }
 
-func featuredPosts() []featuredPostData {
-	return []featuredPostData{
-		{
-			Title:        "The Road Ahead",
-			Subtitle:     "The road ahead might be paved - it might not be.",
-			ImgModifer:   "article-feature article-feature_left",
-			Author:       "Mat Vogels",
-			AuthorImg:    "/static/images/Mat_Vogels_avatar.jpg",
-			PubDate:      "September 25, 2015",
-			Metka:        "",
-			MetkaModifer: "article-feature_metka article-feature_metka_off content__text_font_oxygen",
-		},
-		{
-			Title:        "From Top Down",
-			Subtitle:     "Once a year, go someplace you’ve never been before.",
-			ImgModifer:   "article-feature article-feature_right",
-			Author:       "William Wong",
-			AuthorImg:    "/static/images/William_Wong_avatar.jpg",
-			PubDate:      "September 25, 2015",
-			Metka:        "adventure",
-			MetkaModifer: "article-feature_metka article-feature_metka_on content__text_font_oxygen",
-		},
+// func featuredPosts() []featuredPostData {
+// 	return []featuredPostData{
+// 		{
+// 			Title:        "The Road Ahead",
+// 			Subtitle:     "The road ahead might be paved - it might not be.",
+// 			ImgModifer:   "article-feature article-feature_left",
+// 			Author:       "Mat Vogels",
+// 			AuthorImg:    "/static/images/Mat_Vogels_avatar.jpg",
+// 			PubDate:      "September 25, 2015",
+// 		},
+// 		{
+// 			Title:        "From Top Down",
+// 			Subtitle:     "Once a year, go someplace you’ve never been before.",
+// 			ImgModifer:   "article-feature article-feature_right",
+// 			Author:       "William Wong",
+// 			AuthorImg:    "/static/images/William_Wong_avatar.jpg",
+// 			PubDate:      "September 25, 2015",
+// 		},
+// 	}
+// }
+
+func featuredPosts(client *sqlx.DB) ([]featuredPostData, error) {
+	const query = `
+		SELECT
+			title,
+			subtitle,
+			image_url,
+			author,
+			author_url,
+			pub_date
+		FROM 
+			post
+		WHERE featured = 1
+	`
+
+	var posts []featuredPostData
+
+	err := client.Select(&posts, query)
+	if err != nil {
+		return nil, err
 	}
+	return posts, nil
 }
 
-func recentPosts() []recentPostData {
-	return []recentPostData{
-		{
-			Title:     "Still Standing Tall",
-			Subtitle:  "Life begins at the end of your comfort zone.",
-			MainImg:   "/static/images/still_standing_tall_image.jpg",
-			Author:    "William Wong",
-			AuthorImg: "/static/images/William_Wong_avatar.jpg",
-			PubDate:   "9/25/2015",
-		},
-		{
-			Title:     "Sunny Side Up",
-			Subtitle:  "No place is ever as bad as they tell you it’s going to be.",
-			MainImg:   "/static/images/sunny_side_up_image.png",
-			Author:    "Mat Vogels",
-			AuthorImg: "/static/images/Mat_Vogels_avatar.jpg",
-			PubDate:   "9/25/2015",
-		},
-		{
-			Title:     "Water Falls",
-			Subtitle:  "We travel not to escape life, but for life not to escape us.",
-			MainImg:   "/static/images/water_falls_image.png",
-			Author:    "Mat Vogels",
-			AuthorImg: "/static/images/Mat_Vogels_avatar.jpg",
-			PubDate:   "9/25/2015",
-		},
-		{
-			Title:     "Through the Mist",
-			Subtitle:  "Travel makes you see what a tiny place you occupy in the world.",
-			MainImg:   "/static/images/through_the_mist_image.png",
-			Author:    "William Wong",
-			AuthorImg: "/static/images/William_Wong_avatar.jpg",
-			PubDate:   "9/25/2015",
-		},
-		{
-			Title:     "Awaken Early",
-			Subtitle:  "Not all those who wander are lost.",
-			MainImg:   "/static/images/awaken_early_image.png",
-			Author:    "Mat Vogels",
-			AuthorImg: "/static/images/Mat_Vogels_avatar.jpg",
-			PubDate:   "9/25/2015",
-		},
-		{
-			Title:     "Try it Always",
-			Subtitle:  "The world is a book, and those who do not travel read only one page.",
-			MainImg:   "/static/images/try_it_always_image.jpg",
-			Author:    "Mat Vogels",
-			AuthorImg: "/static/images/Mat_Vogels_avatar.jpg",
-			PubDate:   "9/25/2015",
-		},
+// func recentPosts() []recentPostData {
+// 	return []recentPostData{
+// 		{
+// 			Title:     "Still Standing Tall",
+// 			Subtitle:  "Life begins at the end of your comfort zone.",
+// 			MainImg:   "/static/images/still_standing_tall_image.jpg",
+// 			Author:    "William Wong",
+// 			AuthorImg: "/static/images/William_Wong_avatar.jpg",
+// 			PubDate:   "9/25/2015",
+// 		},
+// 		{
+// 			Title:     "Sunny Side Up",
+// 			Subtitle:  "No place is ever as bad as they tell you it’s going to be.",
+// 			MainImg:   "/static/images/sunny_side_up_image.png",
+// 			Author:    "Mat Vogels",
+// 			AuthorImg: "/static/images/Mat_Vogels_avatar.jpg",
+// 			PubDate:   "9/25/2015",
+// 		},
+// 		{
+// 			Title:     "Water Falls",
+// 			Subtitle:  "We travel not to escape life, but for life not to escape us.",
+// 			MainImg:   "/static/images/water_falls_image.png",
+// 			Author:    "Mat Vogels",
+// 			AuthorImg: "/static/images/Mat_Vogels_avatar.jpg",
+// 			PubDate:   "9/25/2015",
+// 		},
+// 		{
+// 			Title:     "Through the Mist",
+// 			Subtitle:  "Travel makes you see what a tiny place you occupy in the world.",
+// 			MainImg:   "/static/images/through_the_mist_image.png",
+// 			Author:    "William Wong",
+// 			AuthorImg: "/static/images/William_Wong_avatar.jpg",
+// 			PubDate:   "9/25/2015",
+// 		},
+// 		{
+// 			Title:     "Awaken Early",
+// 			Subtitle:  "Not all those who wander are lost.",
+// 			MainImg:   "/static/images/awaken_early_image.png",
+// 			Author:    "Mat Vogels",
+// 			AuthorImg: "/static/images/Mat_Vogels_avatar.jpg",
+// 			PubDate:   "9/25/2015",
+// 		},
+// 		{
+// 			Title:     "Try it Always",
+// 			Subtitle:  "The world is a book, and those who do not travel read only one page.",
+// 			MainImg:   "/static/images/try_it_always_image.jpg",
+// 			Author:    "Mat Vogels",
+// 			AuthorImg: "/static/images/Mat_Vogels_avatar.jpg",
+// 			PubDate:   "9/25/2015",
+// 		},
+// 	}
+// }
+
+func recentPosts(client *sqlx.DB) ([]recentPostData, error) {
+	const query = `
+		SELECT
+			title,
+			subtitle,
+			image_url,
+			author,
+			author_url,
+			pub_date
+		FROM 
+			post
+		WHERE featured = 0
+	`
+
+	var posts []recentPostData
+
+	err := client.Select(&posts, query)
+	if err != nil {
+		return nil, err
 	}
+	return posts, nil
 }
 
 func postParagraphs() []postParagraph {
@@ -137,24 +179,40 @@ func postParagraphs() []postParagraph {
 	}
 }
 
-func index(w http.ResponseWriter, r *http.Request) {
-	ts, err := template.ParseFiles("pages/index.html")
-	if err != nil {
-		http.Error(w, "Internal Server Error", 500)
-		log.Println(err.Error())
-		return
-	}
+func index(client *sqlx.DB) func(http.ResponseWriter, *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		ts, err := template.ParseFiles("pages/index.html")
+		if err != nil {
+			http.Error(w, "Internal Server Error", 500)
+			log.Println(err.Error())
+			return
+		}
 
-	data := indexData{
-		Featured: featuredPosts(),
-		Recent:   recentPosts(),
-	}
+		featured, err := featuredPosts(client)
 
-	err = ts.Execute(w, data)
-	if err != nil {
-		http.Error(w, "Internal Server Error", 500)
-		log.Println(err.Error())
-		return
+		if err != nil {
+			log.Fatal(err)
+			return
+		}
+
+		recent, err := recentPosts(client)
+
+		if err != nil {
+			log.Fatal(err)
+			return
+		}
+
+		data := indexData{
+			Featured: featured,
+			Recent:   recent,
+		}
+
+		err = ts.Execute(w, data)
+		if err != nil {
+			http.Error(w, "Internal Server Error", 500)
+			log.Println(err.Error())
+			return
+		}
 	}
 }
 
