@@ -28,7 +28,7 @@
 }
 
 .footer {
-    background: url(../images/footer_background.png);
+    background: url(/static/images/footer_background.png);
     background-size: cover;
     background-position: center;
     height: 378px;
@@ -79,7 +79,7 @@
 
 .form__input {
     width: 75%;
-    background: red;
+    background: #FFFFFF;
     border-radius: 3px 0px 0px 3px;
     border: none;
     padding: 0;

@@ -45,7 +45,7 @@
         <h2 class="article-section__title content__text_font_oxygen">Featured Posts</h2>
         <div class="article-section__block article-section__block_feature">
             {{ range .Featured }}
-            <div class="{{ .ImgModifer }}">
+            <div class="article-feature article-feature_{{ .ImgModifer }}">
                 <!-- <span class="article-feature_metka article-feature_metka_on content__text_font_oxygen"></span> -->
                 <a href="the-road-ahead.html" class="content__link">
                     <h3 class="article-feature__title content__text_font_lora">{{ .Title }}</h3>

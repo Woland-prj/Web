@@ -1,5 +1,5 @@
 .header {
-    background: url(../images/header_background.png);
+    background: url(/static/images/header_background.png);
     background-size: cover;
     background-position: center;
     height: 500px;
@@ -90,12 +90,12 @@
 }
 
 .article-section {
-    width: 68%;
+    width: 980px;
     margin: 0 auto 108px auto ;
 }
 
 .article-section__title {
-    margin: 60px 0 0 0;
+    margin: 60px 0 23px 0;
     text-align: center;
     font-size: 20px;
     line-height: 1.35;
@@ -115,18 +115,19 @@
 .article-section__block {
     display: flex;
     flex-wrap: wrap;
+    margin: 0;
 }
 
 .article-section__block_feature {
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .article-section__block_recent {
-    justify-content: safe;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .article-feature {
-    margin: 23px 10px 0 10px;
     width: 420px;
     height: 240px;
     padding: 20px;
@@ -155,13 +156,19 @@
     display: none;
 }
 
-.article-feature_left {
-    background: url(../images/the_road_ahead_image.png);
+.article-feature_first {
+    background: url(/static/images/the_road_ahead_image.png);
 }
 
-.article-feature_right {
-    background: url(../images/from_top_down_image.png);
+.article-feature_second {
+    background: url(/static/images/from_top_down_image.png);
 }
+
+/* {{ range .Featured }}
+.article-feature_{{ .ImgModifer }} {
+    background: url({{ .MainImg }});
+}
+{{ end }} */
 
 .article-feature__title {
     margin: 137px 0 6px 0;
@@ -170,7 +177,6 @@
 }
 
 .article-feature__description {
-    margin: 0 0 12px 0;
     font-size: 14px;
     line-height: 1.785;
     color: rgba(255, 255, 255, 0.7);
@@ -200,7 +206,7 @@
 }
 
 .article-recent {
-    margin: 12px;
+    margin-bottom: 23px;
     width: 296px;
     height: 291px;
     background-color: #FFFFFF;
