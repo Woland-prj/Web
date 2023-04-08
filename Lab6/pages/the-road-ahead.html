@@ -29,21 +29,26 @@
                 </div>
             </div>
             <img class="article__image" src="{{ .MainImg }}" alt="{{ .Title }} image">
-            {{ range .Text }}
-                <p class="article__content content__text_font_oxygen">
-                    {{ .Paragraph }}
-                </p>
-            {{ end }}
+            <p class="article__content content__text_font_oxygen">
+                {{ .Text }}
+            </p>
         </article>
-        <footer class="footer">
+        <footer class="footer">     
+            <div class="footer__block footer__block_form form">
+                <h2 class="form__title content__text_font_oxygen">Stay in Touch</h2>
+                <form class="form__block content__text_font_roboto">
+                    <input class="form__input" placeholder="Enter your email address">
+                    <input class="form__button" type="submit" value="Submit">
+                </form>
+                </div>
             <div class="footer__style">
-                <div class="footer__block">
+                <div class="footer__block footer__block_menu">
                     <span class="footer__logo content__text_font_lora">Escape.</span>
                     <nav class="footer__menu content__text_font_oxygen">
-                        <a href="#" class="content__link footer__link">HOME</a>
-                        <a href="#" class="content__link footer__link">CATEGORIES</a>
-                        <a href="#" class="content__link footer__link">ABOUT</a>
-                        <a href="#" class="content__link footer__link">CONTACT</a>
+                        <a href="#" class="footer__link content__link">HOME</a>
+                        <a href="#" class="footer__link content__link">CATEGORIES</a>
+                        <a href="#" class="footer__link content__link">ABOUT</a>
+                        <a href="#" class="footer__link content__link">CONTACT</a>
                     </nav>
                 </div>
             </div>
