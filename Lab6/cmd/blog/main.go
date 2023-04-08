@@ -49,5 +49,3 @@ func extractPass() string {
 	}
 	return pass
 }
-
-// pdB@7325fdah45
