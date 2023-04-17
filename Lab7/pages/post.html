@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{ .Title }}</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../static/styles/post.css">
+        <link rel="stylesheet" href="../static/styles/base.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora&family=Oxygen&display=swap" rel="stylesheet">
+    </head>
+    <body class="content">
+        <header class="header">
+            <div class="header__block">
+                <span class="header__logo content__text_font_lora">Escape.</span>
+                <nav class="header__menu content__text_font_oxygen">
+                    <a href="#" class="content__link header__link">HOME</a>
+                    <a href="#" class="content__link header__link">CATEGORIES</a>
+                    <a href="#" class="content__link header__link">ABOUT</a>
+                    <a href="#" class="content__link header__link">CONTACT</a>
+                </nav>
+            </div>
+        </header>
+        <article>
+            <div class="article__header">
+                <div>
+                    <h1 class="article__title content__text_font_lora">{{ .Title }}</h1>
+                    <p class="article__description content__text_font_oxygen">{{ .Subtitle }}</p>
+                </div>
+            </div>
+            <img class="article__image" src="{{ .MainImg }}" alt="{{ .Title }} image">
+            <p class="article__content content__text_font_oxygen">
+                {{ .Text }}
+            </p>
+        </article>
+        <footer class="footer">     
+            <div class="footer__block footer__block_form form">
+                <h2 class="form__title content__text_font_oxygen">Stay in Touch</h2>
+                <form class="form__block content__text_font_roboto">
+                    <input class="form__input" placeholder="Enter your email address">
+                    <input class="form__button" type="submit" value="Submit">
+                </form>
+                </div>
+            <div class="footer__style">
+                <div class="footer__block footer__block_menu">
+                    <span class="footer__logo content__text_font_lora">Escape.</span>
+                    <nav class="footer__menu content__text_font_oxygen">
+                        <a href="#" class="footer__link content__link">HOME</a>
+                        <a href="#" class="footer__link content__link">CATEGORIES</a>
+                        <a href="#" class="footer__link content__link">ABOUT</a>
+                        <a href="#" class="footer__link content__link">CONTACT</a>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
