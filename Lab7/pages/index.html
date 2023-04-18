@@ -14,7 +14,7 @@
 <body class="content">
     <header class="header">
         <div class="header__block header__block_menu">
-            <span class="header__logo content__text_font_lora">Escape.</span>
+            <a href="/home" class="header__logo content__link"><span class="content__text_font_lora">Escape.</span></a>
             <nav class="header__menu content__text_font_oxygen">
                 <a href="#" class="header__link content__link">home</a>
                 <a href="#" class="header__link content__link">categories</a>
@@ -46,7 +46,7 @@
         <div class="article-section__block article-section__block_feature">
             {{ range .Featured }}
             <!-- <a href="{{ .PostURL }}" class="content__link"></a> -->
-                <a href="{{ .PostURL }}" class="content__link article-feature article-feature_{{ .ImgModifer }}">
+                <a href="{{ .PostURL }}" class="article-feature article-feature_{{ .ImgModifer }}">
                     <!-- <span class="article-feature_metka article-feature_metka_on content__text_font_oxygen"></span> -->
                     <h3 class="article-feature__title content__text_font_lora">{{ .Title }}</h3>
                     <p class="article-feature__description content__text_font_oxygen">{{ .Subtitle }}</p>

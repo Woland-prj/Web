@@ -132,6 +132,7 @@
     height: 240px;
     padding: 20px;
     color: #FFFFFF;
+    text-decoration: none;
     position: relative;
     display: block;
 }
