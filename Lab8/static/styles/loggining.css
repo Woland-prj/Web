@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    width: 100%;
+    height: 937px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:  linear-gradient(0deg, rgba(66, 70, 73, 0.4), rgba(66, 70, 73, 0.4)), url(../images/admin_fon.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.main__centration {
+    position: absolute;
+    width: 77%;
+    height: 73%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.main__section {
+    width: 43%;
+    height: 100%;
+    
+}
+
+.logo {
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.logo__base {
+    font-family: 'Lora', serif;
+    font-size: 45.5px;
+    line-height: 46px;
+    font-weight: inherit;
+    display: inline;
+}
+
+.logo__mod {
+    font-family: 'Oxygen';
+    font-size: 24.5px;
+    line-height: 31px;
+    font-weight: inherit;
+    display: inline;
+}
+
+.logo__descripton {
+    display: block;
+    font-family: 'Oxygen';
+    font-size: 17px;
+    line-height: 25px;
+    margin-top: 16px;
+}
+
+.main__section_left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    background-color: #FFFFFF;
+    border-radius: 3px;
+}
+
+.form__centration {
+    width: 83%;
+    height: 80%;
+    margin: 65px auto;
+}
+
+.form__title {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 40px;
+    margin-bottom: 50px;
+}
+
+.form__error {
+    display: none;
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #7A7A7A;
+}
+
+.form__input {
+    border: none;
+    border-bottom: 1px solid #EAEAEA;
+    margin-bottom: 40px;
+    height: 40px;
+    width: 100%;
+}
+
+.form__button {
+    display: block;
+    width: 93px;
+    height: 48px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    background: #DD783F;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+.form__input_pass {
+    position: relative;
+}
+
+.form__eye {
+    display: block;
+    position: absolute;
+    width: 22px;
+    height: 16px;
+    background: url(../images/eye_icon.svg);
+}
