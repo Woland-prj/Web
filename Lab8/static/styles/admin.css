@@ -1,0 +1,258 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #F7F7F7;
+}
+
+.header {
+    height: 74px;
+    background: #2E2E2E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__centration {
+    width: 1180px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.logo__base {
+    font-family: 'Lora', serif;
+    font-size: 25.7px;
+    line-height: 26px;
+    font-weight: inherit;
+    display: inline;
+}
+
+.logo__mod {
+    font-family: 'Oxygen';
+    font-size: 13.8px;
+    line-height: 17px;
+    font-weight: inherit;
+    display: inline;
+}
+
+.account {
+    display: flex;
+    justify-content: space-between;
+    width: 80px;
+}
+
+.account__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #DD783F;
+    border-radius: 50%;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.account__logout {
+    cursor: pointer;
+}
+
+.content {
+    width: 1180px;
+    margin: auto;
+    margin-top: 64px;
+}
+
+.information__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content__publish {
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+.publish__title {
+    margin: 0;
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 40px;
+    color: #000000;
+}
+
+.publish__subtitle {
+    margin: 8px 0 0 0;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(46, 46, 46, 0.63);
+}
+
+.publish__button {
+    width: 100px;
+    height: 48px;
+    color: #FFFFFF;
+    background: #DD783F;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.content__block-style {
+    background-color: #FFFFFF;
+    box-shadow: 0px 6px 12px -10px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    padding: 40px; 
+}
+
+.content__information {
+    margin-bottom: 16px;
+}
+
+.content__block-style_title {
+    margin: 0;
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 30px;
+}
+
+.fields__lable {
+    display: block;
+    margin: 40px 0 5px 0;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #7A7A7A;
+}
+
+.fields {
+    height: 93%;   
+}
+
+.fields__input {
+    width: 560px;
+    height: 40px;
+    background: #FFFFFF;
+    border: none;
+    border-bottom: 1px solid #EAEAEA;
+    outline:none;
+}
+
+.fields__input:user-valid {
+    background: #F7F7F7;
+    border-bottom: 1px solid #2E2E2E;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.fields__input:focus {
+    border-bottom: 2px solid #2E2E2E;
+}
+
+.fields__author-avatar-block {
+    margin-top: 10px;
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fields__upload-text{
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #2E2E2E;
+}
+
+.fields__upload-image {
+    background-color: #F7F7F7;
+    border: 1px dashed #D3D3D3;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fields__upload-image_author {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.fields__upload-image_post {
+    width: 560px;
+    height: 160px;
+    border-radius: 6px;
+}
+
+.fields__upload-pic {
+    margin-right: 9px;
+}
+
+.fields__upload-image-description {
+    margin-top: 5px;
+    color: #999999;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.fields__upload-image_card {
+    width: 296px;
+    height: 150px;
+    border-radius: 6px;
+}
+
+.information__preview {
+    width: 40%;
+}
+
+.preview__lable {
+    display: block;
+    margin: 20px 0 16px 0;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #7A7A7A;
+}
+
+.preview__lable:first-child {
+    margin: 40px 0 16px 0;
+}
+
+.preview__article {
+    position: relative;
+    width: 440px;
+    height: 385px;
+    background-image: url(../images/article_preview.png);
+}

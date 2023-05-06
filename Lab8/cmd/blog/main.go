@@ -38,14 +38,5 @@ func main() {
 }
 
 func openDB() (*sql.DB, error) {
-	return sql.Open(driverName, "root:pdb7325fdah45@tcp(localhost:3306)/blog?charset=utf8mb4&collation=utf8mb4_unicode_ci&parseTime=true")
+	return sql.Open(driverName, "root:pdB@7325fdah45@tcp(localhost:3306)/blog?charset=utf8mb4&collation=utf8mb4_unicode_ci&parseTime=true")
 }
-
-/* func extractPass() string {
-	pass, exist := os.LookupEnv("MY_SQL_PASS")
-	if exist != true {
-		log.Fatal("password environment variable error")
-		return ""
-	}
-	return pass
-} */

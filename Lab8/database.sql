@@ -16,7 +16,7 @@ CHARACTER SET = utf8mb4
 COLLATE utf8mb4_unicode_ci
 ;
 
-ALTER post ADD content TEXT NOT NULL;
+ALTER TABLE post ADD content TEXT NOT NULL;
 
 INSERT INTO post (title, subtitle, image_url, author, author_url, pub_date, featured) VALUES ('The Road Ahead', 'The road ahead might be paved - it might not be.', 'article-feature article-feature_left', 'Mat Vogels', '/static/images/Mat_Vogels_avatar.jpg', '29/05/2015', 1);
 INSERT INTO post (title, subtitle, image_url, author, author_url, pub_date, featured) VALUES ('From Top Down', 'Once a year, go someplace you have never been before.', 'article-feature article-feature_right', 'William Wong', '/static/images/William_Wong_avatar.jpg', '29/05/2015', 1);

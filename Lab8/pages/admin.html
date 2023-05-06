@@ -4,8 +4,7 @@
 <head>
     <title>Let's do it together</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/styles/home.css">
-    <link rel="stylesheet" href="../static/styles/base.css">
+    <link rel="stylesheet" href="../static/styles/admin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Oxygen&family=Roboto&display=swap" rel="stylesheet">
@@ -19,31 +18,64 @@
                 <span class="logo__mod">author</span>
             </div>
             <div class="header__account account">
-                <div class="account__avatar">N</div>
-                <img class="account__logout" src="">
+                <div class="account__avatar">n</div>
+                <img class="account__logout" src="../static/images/log-out.svg">
             </div>
         </div>
     </header>
     <article class="content">
         <form>
-            <div class="content__publish">
+            <div class="content__publish publish">
                 <div class="publish__text">
                     <h1 class="publish__title">New Post</h1>
                     <p class="publish__subtitle">Fill out the form bellow and publish your article</p>
                 </div>
-                <input type="submit" value="Publish">
+                <input type="submit" value="Publish" class="publish__button">
             </div>
-            <div class="content__information information">
-                <h2 class="information">Main Information</h2>
-                <div class="information__fields">
-                    <lable class="information__lable">Title</lable>
-                    <input class="information__field" placeholder="New Post">
-                    <lable class="information__lable">Short description</lable>
-                    <input class="information__field" placeholder="Please, enter any description">
-                    <lable class="information__lable">Author name</lable>
-                    <input class="information__field" >
+            <div class="content__information content__block-style information">
+                <h2 class="content__block-style_title">Main Information</h2>
+                <div class="information__wrapper">
+                    <div class="information__fields fields">
+                        <lable class="fields__lable">Title</lable>
+                        <input class="fields__input" type="text" />
+                        <lable class="fields__lable">Short description</lable>
+                        <input class="fields__input">
+                        <lable class="fields__lable">Author name</lable>
+                        <input class="fields__input">
+                        <lable class="fields__lable">Author Photo</lable>
+                        <div class="fields__author-avatar-block">
+                            <div class="fields__upload-image fields__upload-image_author">
+                                <img src="../static/images/camera.svg">
+                            </div>
+                            <span class="fields__upload-text">Upload</span>
+                        </div>
+                        <lable class="fields__lable">Publish Date</lable>
+                        <input class="fields__input" type="date">
+                        <lable class="fields__lable">Hero Image </lable>
+                        <div class="fields__upload-image fields__upload-image_post">
+                            <img class="fields__upload-pic" src="../static/images/camera.svg">
+                            <span class="fields__upload-text">Upload</span>
+                        </div>
+                        <span class="fields__upload-image-description">Size up to 10mb. Format: png, jpeg, gif.</span>
+                        <lable class="fields__lable">Hero Image </lable>
+                        <div class="fields__upload-image fields__upload-image_card">
+                            <img class="fields__upload-pic" src="../static/images/camera.svg">
+                            <span class="fields__upload-text">Upload</span>
+                        </div>
+                        <span class="fields__upload-image-description">Size up to 5mb. Format: png, jpeg, gif.</span>
+                    </div>
+                    <div class="information__preview preview">
+                        <lable class="preview__lable">Article preview</lable>
+                        <div class="preview__article"></div>
+                        <lable class="preview__lable">Post card preview</lable>
+                        <div class="preview__card"></div>
+                    </div>
                 </div>
-                <div class="information__previews"></div>
+            </div>
+            <div class="content_post-text content__block-style post-text">
+                <h2 class="content__block-style_title">Content</h2>
+                <lable class="post-text__lable">Post content (plain text)</lable>
+                <input class="post-text__input" placeholder="Type anything you want ..."></input>
             </div>
         </form>
     </article>
