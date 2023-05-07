@@ -204,3 +204,23 @@ func postByID(client *sqlx.DB, postId int) (postData, error) {
 
 	return post, nil
 }
+
+func admin(w http.ResponseWriter, r *http.Request) {
+	ts, err := template.ParseFiles("pages/admin.html")
+
+	if err != nil {
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		log.Println(err.Error())
+		return
+	}
+
+	err = ts.Execute(w, nil)
+
+	if err != nil {
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		log.Println(err.Error())
+		return
+	}
+
+	log.Println("Request completed successfully")
+}
