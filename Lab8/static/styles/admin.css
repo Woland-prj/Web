@@ -185,10 +185,18 @@ body {
     display: none;
 }
 
-.fields__upload-image_done {
+.fields__upload-image_upload {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    object-fit: cover;
+}
+
+.bottom__author-name_upload {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .fields__upload-text{

@@ -44,7 +44,7 @@
                         <input class="fields__input">
                         <lable class="fields__lable">Author Photo</lable>
                         <div class="fields__author-avatar-block">
-                            <div class="fields__upload-image fields__upload-image_author" id="author-image">
+                            <div class="fields__upload-image fields__upload-image_author" id="author-image-main">
                                 <img src="../static/images/camera.svg">
                             </div>
                             <label for="files" class="fields__upload-text">Upload</label>
@@ -91,7 +91,7 @@
                                 <div class="card-box__bottom bottom">
                                     <div class="bottom__wrapper">
                                         <div class="bottom__author-block">
-                                            <div class="bottom__author-image"></div>
+                                            <div class="bottom__author-image" id="author-image-post"></div>
                                             <span class="bottom__author-name">Enter author name</span>
                                         </div>
                                         <span class="bottom__date">4/19/2023</span>
@@ -113,19 +113,27 @@
     </article>
     <script>
         function handleFileSelect(evt) {
-        var file = evt.target.files;
-        var f = file[0];
-        if (!f.type.match('image.*')) {
-            alert("Image only please....");
-        }
-        var reader = new FileReader();
-        reader.onload = (function(theFile) {
+            var file = evt.target.files;
+            var f = file[0];
+            if (!f.type.match('image.*')) {
+                alert("Image only please....");
+            }
+            var main = new FileReader();
+            main.onload = (function(theFile) {
                 return function(e) {
-                    var img = document.getElementById('author-image');
-                    img.innerHTML = ['<img class="fields__upload-image_done" "title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
+                    var preview_main = document.getElementById('author-image-main');
+                    preview_main.innerHTML = ['<img class="fields__upload-image_upload" "title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
                 };
             })(f);
-            reader.readAsDataURL(f);
+            main.readAsDataURL(f);
+            var post = new FileReader();
+            post.onload = (function(theFile) {
+                return function(e) {
+                    var preview_post = document.getElementById('author-image-post');
+                    preview_post.innerHTML = ['<img class="bottom__author-name_upload" "title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
+                };
+            })(f);
+            post.readAsDataURL(f);
         }
         document.getElementById('files').addEventListener('change', handleFileSelect, false);
     </script>
