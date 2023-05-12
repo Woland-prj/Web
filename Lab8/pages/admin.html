@@ -38,11 +38,11 @@
                 <div class="information__wrapper">
                     <div class="information__fields fields">
                         <lable class="fields__lable">Title</lable>
-                        <input class="fields__input">
+                        <input class="fields__input" id="title-input" placeholder="New Post">
                         <lable class="fields__lable">Short description</lable>
-                        <input class="fields__input">
+                        <input class="fields__input" id="description-input" placeholder="Please, enter any description">
                         <lable class="fields__lable">Author name</lable>
-                        <input class="fields__input">
+                        <input class="fields__input" id="name-input" placeholder="Enter author name">
                         <lable class="fields__lable">Author Photo</lable>
                         <div class="fields__author-avatar-block">
                             <div class="fields__upload-image fields__upload-image_author" id="author-image-main">
@@ -53,17 +53,18 @@
                         </div>
                         <lable class="fields__lable">Publish Date</lable>
                         <input class="fields__input" type="date">
-                        <lable class="fields__lable">Hero Image </lable>
+                        <lable class="fields__lable">Hero Image</lable>
                         <div class="fields__upload-image fields__upload-image_post" id="image-big">
                             <img class="fields__upload-pic" src="../static/images/camera.svg">
                             <label for="post-pic-load" class="fields__upload-text">Upload</label>
                             <input id="post-pic-load" class="fields__upload-text_btn" type="file">
                         </div>
                         <span class="fields__upload-image-description">Size up to 10mb. Format: png, jpeg, gif.</span>
-                        <lable class="fields__lable">Hero Image </lable>
-                        <div class="fields__upload-image fields__upload-image_card">
+                        <lable class="fields__lable">Hero Image</lable>
+                        <div class="fields__upload-image fields__upload-image_card" id="image-small">
                             <img class="fields__upload-pic" src="../static/images/camera.svg">
-                            <span class="fields__upload-text">Upload</span>
+                            <label for="card-pic-load" class="fields__upload-text">Upload</label>
+                            <input id="card-pic-load" class="fields__upload-text_btn" type="file">
                         </div>
                         <span class="fields__upload-image-description">Size up to 5mb. Format: png, jpeg, gif.</span>
                     </div>
@@ -73,11 +74,11 @@
                             <div class="previw__article-box article-box">
                                 <div class="article-box__wrapper">
                                     <div class="article-box__header">
-                                        <h3 class="article-box__title">New Post</h3>
-                                        <span class="article-box__description">Please, enter any description</span>
+                                        <h3 class="article-box__title" id="post-title">New Post</h3>
+                                        <span class="article-box__description" id="post-description">Please, enter any description</span>
                                     </div>
                                 </div>
-                                <div class="article-box__image"></div>
+                                <div class="article-box__image" id="image-big-post"></div>
                             </div>
                             <div class="previw__transparency-right"></div>
                             <div class="previw__transparency-bottom"></div>
@@ -85,16 +86,16 @@
                         <lable class="preview__lable">Post card preview</lable>
                         <div class="preview__card">
                             <div class="preview__card-box card-box">
-                                <div class="card-box__image"></div>
+                                <div class="card-box__image" id="image-small-post"></div>
                                 <div class="card-box__text">
-                                    <h3 class="card-box__title">New Post</h3>
-                                    <span class="card-box__description">Please, enter any description</span>
+                                    <h3 class="card-box__title" id="card-title">New Post</h3>
+                                    <span class="card-box__description" id="card-description">Please, enter any description</span>
                                 </div>
                                 <div class="card-box__bottom bottom">
                                     <div class="bottom__wrapper">
                                         <div class="bottom__author-block">
-                                            <div class="bottom__author-image" id="author-image-post"></div>
-                                            <span class="bottom__author-name">Enter author name</span>
+                                            <div class="bottom__author-image" id="author-image-card"></div>
+                                            <span class="bottom__author-name" id="card-name">Enter author name</span>
                                         </div>
                                         <span class="bottom__date">4/19/2023</span>
                                     </div>
