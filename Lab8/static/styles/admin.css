@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: #F7F7F7;
+    background-color: #F7F7F7;
 }
 
 .header {
@@ -185,14 +185,14 @@ body {
     display: none;
 }
 
-.fields__upload-image_upload {
+.fields__upload-image_author_load {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.bottom__author-name_upload {
+.bottom__author-name_load {
     width: 26px;
     height: 26px;
     border-radius: 50%;
@@ -229,6 +229,14 @@ body {
     border-radius: 6px;
 }
 
+.fields__upload-image_post_load {
+    width: 560px;
+    height: 160px;
+    border-radius: 6px;
+    border: none;
+    object-fit: cover;
+}
+
 .fields__upload-pic {
     margin-right: 9px;
 }
@@ -244,6 +252,12 @@ body {
 }
 
 .fields__upload-image_card {
+    width: 296px;
+    height: 150px;
+    border-radius: 6px;
+}
+
+.fields__upload-image_card_load {
     width: 296px;
     height: 150px;
     border-radius: 6px;
