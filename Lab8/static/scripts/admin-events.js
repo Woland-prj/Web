@@ -20,6 +20,10 @@ function loadAvatar(evt) {
         };
     })(f);
     card.readAsDataURL(f);
+    let button_old = document.getElementById('author-load-lable');
+    let button_new = document.getElementById('upload-new-author');
+    button_old.classList.add('content__hide');
+    button_new.classList.remove('content__hide');
 }
 
 function loadPostImage(evt) {
@@ -45,6 +49,10 @@ function loadPostImage(evt) {
         };
     })(f);
     post.readAsDataURL(f);
+    let text_old = document.getElementById('upload-description-big');
+    let button_new = document.getElementById('upload-new-big');
+    text_old.classList.add('content__hide');
+    button_new.classList.remove('content__hide');
 }
 
 function loadCardImage(evt) {
@@ -70,35 +78,63 @@ function loadCardImage(evt) {
         };
     })(f);
     post.readAsDataURL(f);
+    let text_old = document.getElementById('upload-description-small');
+    let button_new = document.getElementById('upload-new-small');
+    text_old.classList.add('content__hide');
+    button_new.classList.remove('content__hide');
 }
 
 function loadTitle(evt) {
     let post_title = document.getElementById('post-title');
     let card_title = document.getElementById('card-title');
+    let field = document.getElementById('title-input')
     post_title.textContent = evt.target.value;
     card_title.textContent = evt.target.value;
+    field.classList.add('fields__input_not-gap');
     if(evt.target.value == '') {
         post_title.textContent = 'New Post';
         card_title.textContent = 'New Post';
+        field.classList.remove('fields__input_not-gap');
     }
 }
 
 function loadDescription(evt) {
     let post_description = document.getElementById('post-description');
     let card_description = document.getElementById('card-description');
+    let field = document.getElementById('description-input')
     post_description.textContent = evt.target.value;
     card_description.textContent = evt.target.value;
+    field.classList.add('fields__input_not-gap')
     if(evt.target.value == '') {
         post_description.textContent = 'Please, enter any description';
         card_description.textContent = 'Please, enter any description';
+        field.classList.remove('fields__input_not-gap');
     }
 }
 
 function loadName(evt) {
     let card_name = document.getElementById('card-name');
+    let field = document.getElementById('name-input')
     card_name.textContent = evt.target.value;
+    field.classList.add('fields__input_not-gap')
     if(evt.target.value == '') {
         card_name.textContent = 'Enter author name';
+        field.classList.remove('fields__input_not-gap');
+    }
+}
+
+function loadDate(evt) {
+    let card_date = document.getElementById('card-date');
+    let field = document.getElementById('date-input')
+    let strArr = evt.target.value.split('-');
+    let day = strArr[2];
+    let month = strArr[1];
+    let year = strArr[0];
+    card_date.textContent = day + '/' + month + '/' + year;
+    field.classList.add('fields__input_not-gap')
+    if(evt.target.value == '') {
+        card_date.textContent = 'dd/mm/gggg';
+        field.classList.remove('fields__input_not-gap');
     }
 }
 
@@ -108,6 +144,7 @@ document.getElementById('card-pic-load').addEventListener('change', loadCardImag
 document.getElementById('title-input').addEventListener('change', loadTitle);
 document.getElementById('description-input').addEventListener('change', loadDescription);
 document.getElementById('name-input').addEventListener('change', loadName);
+document.getElementById('date-input').addEventListener('change', loadDate);
 
 // const formElem = document.querySelector("form");
 // description-input

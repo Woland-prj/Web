@@ -48,25 +48,55 @@
                             <div class="fields__upload-image fields__upload-image_author" id="author-image-main">
                                 <img src="../static/images/camera.svg">
                             </div>
-                            <label for="author-pic-load" class="fields__upload-text">Upload</label>
+                            <label for="author-pic-load" class="fields__upload-text" id="author-load-lable">Upload</label>
                             <input id="author-pic-load" class="fields__upload-text_btn" type="file">
+                            <div class="fields__uplod-new-block uplod-new-block uplod-new-block_author content__hide" id="upload-new-author">
+                                <div class="uplod-new-block__button">
+                                    <img src="../static/images/camera.svg" class="uplod-new-block__icon">
+                                    <label for="author-pic-load" class="fields__upload-text">Upload New</label>
+                                </div>
+                                <div class="uplod-new-block__button">
+                                    <img src="../static/images/trash.svg" class="uplod-new-block__icon">
+                                    <span class="fields__upload-text fields__upload-text_red">Remove</span>
+                                </div>
+                            </div>
                         </div>
                         <lable class="fields__lable">Publish Date</lable>
-                        <input class="fields__input" type="date">
+                        <input class="fields__input" type="date" id="date-input">
                         <lable class="fields__lable">Hero Image</lable>
                         <div class="fields__upload-image fields__upload-image_post" id="image-big">
                             <img class="fields__upload-pic" src="../static/images/camera.svg">
                             <label for="post-pic-load" class="fields__upload-text">Upload</label>
                             <input id="post-pic-load" class="fields__upload-text_btn" type="file">
                         </div>
-                        <span class="fields__upload-image-description">Size up to 10mb. Format: png, jpeg, gif.</span>
+                        <span class="fields__upload-image-description" id="upload-description-big">Size up to 10mb. Format: png, jpeg, gif.</span>
+                        <div class="fields__uplod-new-block uplod-new-block content__hide" id="upload-new-big">
+                            <div class="uplod-new-block__button">
+                                <img src="../static/images/camera.svg" class="uplod-new-block__icon">
+                                <label for="post-pic-load" class="fields__upload-text">Upload New</label>
+                            </div>
+                            <div class="uplod-new-block__button">
+                                <img src="../static/images/trash.svg" class="uplod-new-block__icon">
+                                <span class="fields__upload-text fields__upload-text_red">Remove</span>
+                            </div>
+                        </div>
                         <lable class="fields__lable">Hero Image</lable>
                         <div class="fields__upload-image fields__upload-image_card" id="image-small">
                             <img class="fields__upload-pic" src="../static/images/camera.svg">
                             <label for="card-pic-load" class="fields__upload-text">Upload</label>
                             <input id="card-pic-load" class="fields__upload-text_btn" type="file">
                         </div>
-                        <span class="fields__upload-image-description">Size up to 5mb. Format: png, jpeg, gif.</span>
+                        <span class="fields__upload-image-description" id="upload-description-small">Size up to 5mb. Format: png, jpeg, gif.</span>
+                        <div class="fields__uplod-new-block uplod-new-block content__hide" id="upload-new-small">
+                            <div class="uplod-new-block__button">
+                                <img src="../static/images/camera.svg" class="uplod-new-block__icon">
+                                <label for="post-pic-load" class="fields__upload-text">Upload New</label>
+                            </div>
+                            <div class="uplod-new-block__button">
+                                <img src="../static/images/trash.svg" class="uplod-new-block__icon">
+                                <span class="fields__upload-text fields__upload-text_red">Remove</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="information__preview preview">
                         <lable class="preview__lable">Article preview</lable>
@@ -97,7 +127,7 @@
                                             <div class="bottom__author-image" id="author-image-card"></div>
                                             <span class="bottom__author-name" id="card-name">Enter author name</span>
                                         </div>
-                                        <span class="bottom__date">4/19/2023</span>
+                                        <span class="bottom__date" id="card-date">dd/mm/gggg</span>
                                     </div>
                                 </div>
                             </div>

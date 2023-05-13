@@ -163,7 +163,7 @@ body {
     outline:none;
 }
 
-.fields__input:user-valid {
+.fields__input_not-gap {
     background: #F7F7F7;
     border-bottom: 1px solid #2E2E2E;
     border-radius: 5px 5px 0px 0px;
@@ -175,7 +175,7 @@ body {
 
 .fields__author-avatar-block {
     margin-top: 10px;
-    width: 120px;
+    width: fit-content;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -190,6 +190,26 @@ body {
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.uplod-new-block{
+    margin-top: 12px;
+    width: 225px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.uplod-new-block__button {
+    display: flex;
+    align-items: center;
+}
+
+.uplod-new-block__icon {
+    margin-right: 9px;
+}
+
+.uplod-new-block_author {
+    margin: 0;
 }
 
 .bottom__author-name_load {
@@ -209,7 +229,12 @@ body {
     cursor: pointer;
 }
 
+.fields__upload-text_red {
+    color: #E86961;
+}
+
 .fields__upload-image {
+    margin-right: 17px;
     background-color: #F7F7F7;
     border: 1px dashed #D3D3D3;
     display: flex;
@@ -262,6 +287,10 @@ body {
     height: 150px;
     border-radius: 6px;
     object-fit: cover;
+}
+
+.content__hide {
+    display: none;
 }
 
 .information__preview {
