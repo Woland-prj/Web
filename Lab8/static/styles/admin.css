@@ -320,6 +320,8 @@ body {
 }
 
 .article-box__description {
+    display: inline-block;
+    width: 100%;
     font-family: 'Oxygen';
     font-style: normal;
     font-weight: 400;

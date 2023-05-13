@@ -77,6 +77,10 @@ function loadTitle(evt) {
     let card_title = document.getElementById('card-title');
     post_title.textContent = evt.target.value;
     card_title.textContent = evt.target.value;
+    if(evt.target.value == '') {
+        post_title.textContent = 'New Post';
+        card_title.textContent = 'New Post';
+    }
 }
 
 function loadDescription(evt) {
@@ -84,11 +88,18 @@ function loadDescription(evt) {
     let card_description = document.getElementById('card-description');
     post_description.textContent = evt.target.value;
     card_description.textContent = evt.target.value;
+    if(evt.target.value == '') {
+        post_description.textContent = 'Please, enter any description';
+        card_description.textContent = 'Please, enter any description';
+    }
 }
 
 function loadName(evt) {
     let card_name = document.getElementById('card-name');
     card_name.textContent = evt.target.value;
+    if(evt.target.value == '') {
+        card_name.textContent = 'Enter author name';
+    }
 }
 
 document.getElementById('author-pic-load').addEventListener('change', loadAvatar);
