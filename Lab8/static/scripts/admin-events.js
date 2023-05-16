@@ -73,8 +73,8 @@ function loadCardImage(evt) {
     let post = new FileReader();
     post.onload = (function(theFile) {
         return function(e) {
-            let preview_main = document.getElementById('image-small-post');
-            preview_main.innerHTML = ['<img class="card-box__image_load" "title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
+            let preview_post = document.getElementById('image-small-post');
+            preview_post.innerHTML = ['<img class="card-box__image_load" "title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
         };
     })(f);
     post.readAsDataURL(f);
@@ -138,6 +138,64 @@ function loadDate(evt) {
     }
 }
 
+function clearAvatar(evt) {
+    let main = document.getElementById('author-image-main');
+    let card = document.getElementById('author-image-card');
+    let input = document.getElementById('author-pic-load');
+    main.innerHTML = '<img src="../static/images/camera.svg">';
+    card.innerHTML = '';
+    input.value = '';
+    let button_old = document.getElementById('upload-new-author');
+    let button_new = document.getElementById('author-load-lable');
+    button_old.classList.add('content__hide');
+    button_new.classList.remove('content__hide');
+}
+
+function clearSmallImg(evt) {
+    let main = document.getElementById('image-small');
+    let card = document.getElementById('image-small-post');
+    let input = document.getElementById('card-pic-load');
+    main.classList.add('fields__upload-image');
+    main.innerHTML = '<img class="fields__upload-pic" src="../static/images/camera.svg"> <label for="card-pic-load" class="fields__upload-text">Upload</label>';
+    card.innerHTML = '';
+    input.value = '';
+    let button_old = document.getElementById('upload-new-small');
+    let text_new = document.getElementById('upload-description-small');
+    button_old.classList.add('content__hide');
+    text_new.classList.remove('content__hide');
+}
+
+function clearBigImg(evt) {
+    let main = document.getElementById('image-big');
+    let post = document.getElementById('image-big-post');
+    let input = document.getElementById('post-pic-load');
+    main.classList.add('fields__upload-image');
+    main.innerHTML = '<img class="fields__upload-pic" src="../static/images/camera.svg"> <label for="post-pic-load" class="fields__upload-text">Upload</label>';
+    post.innerHTML = '';
+    input.value = '';
+    let button_old = document.getElementById('upload-new-big');
+    let text_new = document.getElementById('upload-description-big');
+    button_old.classList.add('content__hide');
+    text_new.classList.remove('content__hide');
+}
+
+function printData() {
+    let form = document.getElementById('post-form');
+    let data = new FormData(form);
+    let reader = new FileReader();
+    let object = {};
+    data.forEach(function(value, key){
+        object[key] = value;
+    });
+    reader.onload = () => {
+        object['author_avatar'] = btoa(reader.result);
+    }
+    reader.readAsBinaryString(object['author_avatar']);
+    console.log(object['author_avatar']);
+    let json = JSON.stringify(object);
+    console.log(json);
+}
+
 document.getElementById('author-pic-load').addEventListener('change', loadAvatar);
 document.getElementById('post-pic-load').addEventListener('change', loadPostImage);
 document.getElementById('card-pic-load').addEventListener('change', loadCardImage);
@@ -145,6 +203,7 @@ document.getElementById('title-input').addEventListener('change', loadTitle);
 document.getElementById('description-input').addEventListener('change', loadDescription);
 document.getElementById('name-input').addEventListener('change', loadName);
 document.getElementById('date-input').addEventListener('change', loadDate);
-
-// const formElem = document.querySelector("form");
-// description-input
+document.getElementById('remove-avatar-btn').addEventListener('click', clearAvatar);
+document.getElementById('remove-small-btn').addEventListener('click', clearSmallImg);
+document.getElementById('remove-big-btn').addEventListener('click', clearBigImg);
+document.getElementById('submit-btn').addEventListener('click', printData);

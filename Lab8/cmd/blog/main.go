@@ -39,5 +39,5 @@ func main() {
 }
 
 func openDB() (*sql.DB, error) {
-	return sql.Open(driverName, "root:pdB@7325fdah45@tcp(localhost:3306)/blog?charset=utf8mb4&collation=utf8mb4_unicode_ci&parseTime=true")
+	return sql.Open(driverName, "root:pdb7325fdah45@tcp(localhost:3306)/blog?charset=utf8mb4&collation=utf8mb4_unicode_ci&parseTime=true")
 }
