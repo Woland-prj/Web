@@ -15,6 +15,7 @@ function loadAvatar(evt) {
     let card = new FileReader();
     card.onload = (function(theFile) {
         return function(e) {
+            console.log(theFile)
             let preview_post = document.getElementById('author-image-card');
             preview_post.innerHTML = ['<img class="bottom__author-name_load" "title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
         };
@@ -87,7 +88,7 @@ function loadCardImage(evt) {
 function loadTitle(evt) {
     let post_title = document.getElementById('post-title');
     let card_title = document.getElementById('card-title');
-    let field = document.getElementById('title-input')
+    let field = document.getElementById('title')
     post_title.textContent = evt.target.value;
     card_title.textContent = evt.target.value;
     field.classList.add('fields__input_not-gap');
@@ -101,7 +102,7 @@ function loadTitle(evt) {
 function loadDescription(evt) {
     let post_description = document.getElementById('post-description');
     let card_description = document.getElementById('card-description');
-    let field = document.getElementById('description-input')
+    let field = document.getElementById('description')
     post_description.textContent = evt.target.value;
     card_description.textContent = evt.target.value;
     field.classList.add('fields__input_not-gap')
@@ -114,7 +115,7 @@ function loadDescription(evt) {
 
 function loadName(evt) {
     let card_name = document.getElementById('card-name');
-    let field = document.getElementById('name-input')
+    let field = document.getElementById('author_name')
     card_name.textContent = evt.target.value;
     field.classList.add('fields__input_not-gap')
     if(evt.target.value == '') {
@@ -125,7 +126,7 @@ function loadName(evt) {
 
 function loadDate(evt) {
     let card_date = document.getElementById('card-date');
-    let field = document.getElementById('date-input')
+    let field = document.getElementById('publish_date')
     let strArr = evt.target.value.split('-');
     let day = strArr[2];
     let month = strArr[1];
@@ -141,7 +142,7 @@ function loadDate(evt) {
 function clearAvatar(evt) {
     let main = document.getElementById('author-image-main');
     let card = document.getElementById('author-image-card');
-    let input = document.getElementById('author-pic-load');
+    let input = document.getElementById('author_avatar');
     main.innerHTML = '<img src="../static/images/camera.svg">';
     card.innerHTML = '';
     input.value = '';
@@ -154,9 +155,9 @@ function clearAvatar(evt) {
 function clearSmallImg(evt) {
     let main = document.getElementById('image-small');
     let card = document.getElementById('image-small-post');
-    let input = document.getElementById('card-pic-load');
+    let input = document.getElementById('card_image');
     main.classList.add('fields__upload-image');
-    main.innerHTML = '<img class="fields__upload-pic" src="../static/images/camera.svg"> <label for="card-pic-load" class="fields__upload-text">Upload</label>';
+    main.innerHTML = '<img class="fields__upload-pic" src="../static/images/camera.svg"> <label for="card_image" class="fields__upload-text">Upload</label>';
     card.innerHTML = '';
     input.value = '';
     let button_old = document.getElementById('upload-new-small');
@@ -168,9 +169,9 @@ function clearSmallImg(evt) {
 function clearBigImg(evt) {
     let main = document.getElementById('image-big');
     let post = document.getElementById('image-big-post');
-    let input = document.getElementById('post-pic-load');
+    let input = document.getElementById('post_image');
     main.classList.add('fields__upload-image');
-    main.innerHTML = '<img class="fields__upload-pic" src="../static/images/camera.svg"> <label for="post-pic-load" class="fields__upload-text">Upload</label>';
+    main.innerHTML = '<img class="fields__upload-pic" src="../static/images/camera.svg"> <label for="post_image" class="fields__upload-text">Upload</label>';
     post.innerHTML = '';
     input.value = '';
     let button_old = document.getElementById('upload-new-big');
@@ -179,30 +180,53 @@ function clearBigImg(evt) {
     text_new.classList.remove('content__hide');
 }
 
-function printData() {
-    let form = document.getElementById('post-form');
-    let data = new FormData(form);
-    let reader = new FileReader();
-    let object = {};
-    data.forEach(function(value, key){
-        object[key] = value;
+function imageToBase64(imgFile) {
+    return new Promise(resolve => {
+        let reader = new FileReader();
+        reader.onload = () => {
+            resolve(reader.result);
+        }
+        reader.readAsDataURL(imgFile);
     });
-    reader.onload = () => {
-        object['author_avatar'] = btoa(reader.result);
-    }
-    reader.readAsBinaryString(object['author_avatar']);
-    console.log(object['author_avatar']);
-    let json = JSON.stringify(object);
-    console.log(json);
 }
 
-document.getElementById('author-pic-load').addEventListener('change', loadAvatar);
-document.getElementById('post-pic-load').addEventListener('change', loadPostImage);
-document.getElementById('card-pic-load').addEventListener('change', loadCardImage);
-document.getElementById('title-input').addEventListener('change', loadTitle);
-document.getElementById('description-input').addEventListener('change', loadDescription);
-document.getElementById('name-input').addEventListener('change', loadName);
-document.getElementById('date-input').addEventListener('change', loadDate);
+function validateData(data) {
+    let valid = true;
+    for (const pair of data.entries()) {
+        if(pair[1] == '') {
+            console.log(`${pair[0]} is blank, cannot publish`);
+            valid = false;
+        }
+    }
+    return valid;
+}
+
+async function printData() {
+    let form = document.getElementById('post-form');
+    let data = new FormData(form);
+    let object = {};
+    if (validateData(data)) {
+        data.forEach(function(value, key){
+            object[key] = value;
+        });
+        const base64avatar = await imageToBase64(object['author_avatar']);
+        const base64post = await imageToBase64(object['post_image']);
+        const base64card = await imageToBase64(object['card_image']);
+        object['author_avatar'] = base64avatar;
+        object['post_image'] = base64post;
+        object['card_image'] = base64card;
+        let json = JSON.stringify(object);
+        console.log(json);
+    }
+}
+
+document.getElementById('author_avatar').addEventListener('change', loadAvatar);
+document.getElementById('post_image').addEventListener('change', loadPostImage);
+document.getElementById('card_image').addEventListener('change', loadCardImage);
+document.getElementById('title').addEventListener('change', loadTitle);
+document.getElementById('description').addEventListener('change', loadDescription);
+document.getElementById('author_name').addEventListener('change', loadName);
+document.getElementById('publish_date').addEventListener('change', loadDate);
 document.getElementById('remove-avatar-btn').addEventListener('click', clearAvatar);
 document.getElementById('remove-small-btn').addEventListener('click', clearSmallImg);
 document.getElementById('remove-big-btn').addEventListener('click', clearBigImg);

@@ -38,22 +38,22 @@
                 <div class="information__wrapper">
                     <div class="information__fields fields">
                         <lable class="fields__lable">Title</lable>
-                        <input class="fields__input" id="title-input" placeholder="New Post" name="title">
+                        <input class="fields__input" id="title" placeholder="New Post" name="title">
                         <lable class="fields__lable">Short description</lable>
-                        <input class="fields__input" id="description-input" name="description" placeholder="Please, enter any description">
+                        <input class="fields__input" id="description" name="description" placeholder="Please, enter any description">
                         <lable class="fields__lable">Author name</lable>
-                        <input class="fields__input" id="name-input" name="author_name" placeholder="Enter author name">
+                        <input class="fields__input" id="author_name" name="author_name" placeholder="Enter author name">
                         <lable class="fields__lable">Author Photo</lable>
                         <div class="fields__author-avatar-block">
                             <div class="fields__upload-image fields__upload-image_author" id="author-image-main">
                                 <img src="../static/images/camera.svg">
                             </div>
-                            <label for="author-pic-load" class="fields__upload-text" id="author-load-lable">Upload</label>
-                            <input id="author-pic-load" class="fields__upload-text_btn" type="file" name="author_avatar">
+                            <label for="author_avatar" class="fields__upload-text" id="author-load-lable">Upload</label>
+                            <input id="author_avatar" class="fields__upload-text_btn" type="file" name="author_avatar">
                             <div class="fields__uplod-new-block uplod-new-block uplod-new-block_author content__hide" id="upload-new-author">
                                 <div class="uplod-new-block__button">
                                     <img src="../static/images/camera.svg" class="uplod-new-block__icon">
-                                    <label for="author-pic-load" class="fields__upload-text">Upload New</label>
+                                    <label for="author_avatar" class="fields__upload-text">Upload New</label>
                                 </div>
                                 <div class="uplod-new-block__button">
                                     <img src="../static/images/trash.svg" class="uplod-new-block__icon">
@@ -62,18 +62,18 @@
                             </div>
                         </div>
                         <lable class="fields__lable">Publish Date</lable>
-                        <input class="fields__input" type="date" id="date-input" name="publish_date">
+                        <input class="fields__input" type="date" id="publish_date" name="publish_date">
                         <lable class="fields__lable">Hero Image</lable>
                         <div class="fields__upload-image fields__upload-image_post" id="image-big">
                             <img class="fields__upload-pic" src="../static/images/camera.svg">
-                            <label for="post-pic-load" class="fields__upload-text">Upload</label>
+                            <label for="post_image" class="fields__upload-text">Upload</label>
                         </div>
-                        <input id="post-pic-load" class="fields__upload-text_btn" type="file" name="post_image">
+                        <input id="post_image" class="fields__upload-text_btn" type="file" name="post_image">
                         <span class="fields__upload-image-description" id="upload-description-big">Size up to 10mb. Format: png, jpeg, gif.</span>
                         <div class="fields__uplod-new-block uplod-new-block content__hide" id="upload-new-big">
                             <div class="uplod-new-block__button">
                                 <img src="../static/images/camera.svg" class="uplod-new-block__icon">
-                                <label for="post-pic-load" class="fields__upload-text">Upload New</label>
+                                <label for="post_image" class="fields__upload-text">Upload New</label>
                             </div>
                             <div class="uplod-new-block__button">
                                 <img src="../static/images/trash.svg" class="uplod-new-block__icon">
@@ -83,14 +83,14 @@
                         <lable class="fields__lable">Hero Image</lable>
                         <div class="fields__upload-image fields__upload-image_card" id="image-small">
                             <img class="fields__upload-pic" src="../static/images/camera.svg">
-                            <label for="card-pic-load" class="fields__upload-text">Upload</label>
+                            <label for="card_image" class="fields__upload-text">Upload</label>
                         </div>
-                        <input id="card-pic-load" class="fields__upload-text_btn" type="file" id="card_image" name="card_image">
+                        <input id="card_image" class="fields__upload-text_btn" type="file" name="card_image">
                         <span class="fields__upload-image-description" id="upload-description-small">Size up to 5mb. Format: png, jpeg, gif.</span>
                         <div class="fields__uplod-new-block uplod-new-block content__hide" id="upload-new-small">
                             <div class="uplod-new-block__button">
                                 <img src="../static/images/camera.svg" class="uplod-new-block__icon">
-                                <label for="card-pic-load" class="fields__upload-text">Upload New</label>
+                                <label for="card_image" class="fields__upload-text">Upload New</label>
                             </div>
                             <div class="uplod-new-block__button">
                                 <img src="../static/images/trash.svg" class="uplod-new-block__icon">
