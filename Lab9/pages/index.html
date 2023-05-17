@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Let's do it together</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/styles/home.css">
+    <link rel="stylesheet" href="../static/styles/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Oxygen&family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body class="content">
+    <header class="header">
+        <div class="header__block header__block_menu">
+            <a href="/home" class="header__logo content__link"><span class="content__text_font_lora">Escape.</span></a>
+            <nav class="header__menu content__text_font_oxygen">
+                <a href="#" class="header__link content__link">home</a>
+                <a href="#" class="header__link content__link">categories</a>
+                <a href="#" class="header__link content__link">about</a>
+                <a href="#" class="header__link content__link">contact</a>
+            </nav>
+        </div>
+        <div class="header__block header__block_title">
+            <div>
+                <h1 class="header__title content__text_font_lora">Let's do it together.</h1>
+                <p class="header__description content__text_font_oxygen">We travel the world in search of stories. Come
+                    along for the ride.</p>
+                <button class="header__button content__text_font_oxygen">View Latest Posts</button>
+            </div>
+        </div>
+    </header>
+    <div class="sub-nav__background">
+        <div class="sub-nav content__text_font_lora">
+            <a href="#" class="sub-nav__link content__link">Nature</a>
+            <a href="#" class="sub-nav__link content__link">Photography</a>
+            <a href="#" class="sub-nav__link content__link">Relaxation</a>
+            <a href="#" class="sub-nav__link content__link">Vacation</a>
+            <a href="#" class="sub-nav__link content__link">Travel</a>
+            <a href="#" class="sub-nav__link content__link">Adventure</a>
+        </div>
+    </div>
+    <article class="article-section">
+        <h2 class="article-section__title content__text_font_oxygen">Featured Posts</h2>
+        <div class="article-section__block article-section__block_feature">
+            {{ range .Featured }}
+            <!-- <a href="{{ .PostURL }}" class="content__link"></a> -->
+                <a href="{{ .PostURL }}" class="article-feature article-feature_{{ .ImgModifer }}">
+                    <!-- <span class="article-feature_metka article-feature_metka_on content__text_font_oxygen"></span> -->
+                    <h3 class="article-feature__title content__text_font_lora">{{ .Title }}</h3>
+                    <p class="article-feature__description content__text_font_oxygen">{{ .Subtitle }}</p>
+                    <div class="article-feature__autor">
+                        <div class="article__autor_align">
+                            <img class="article-feature__avatar" src="{{ .AuthorImg }}" alt="{{ .Author }} avatar">
+                            <span class="article-feature__bottom-text content__text_font_oxygen">{{ .Author }}</span>
+                        </div>
+                        <span class="article-feature__bottom-text content__text_font_oxygen">{{ .PubDate }}</span>
+                    </div>
+                </a>
+            <!-- </a> -->
+            {{ end }}
+        </div>
+        <h2 class="article-section__title content__text_font_oxygen">Most Recent</h2>
+        <div class="article-section__block article-section__block_recent">
+            {{ range .Recent }}
+            <a class="article-recent content__link" href="{{ .PostURL }}">
+                <img src="{{ .MainImg }}" alt="{{ .Title }} image">
+                <div class="article-recent__text">
+                    <h3 class="article-recent__title content__text_font_lora">{{ .Title }}</h3>
+                    <p class="article-recent__description content__text_font_oxygen">{{ .Subtitle }}</p>
+                </div>
+                <div class="article-recent__bottom-text">
+                    <div class="article__autor_align">
+                        <img class="article-recent__avatar" src="{{ .AuthorImg }}"
+                            alt="{{ .Author }} avatar">
+                        <span class="article-recent__name content__text_font_oxygen">{{ .Author }}</span>
+                    </div>
+                    <span class="article-recent__date content__text_font_oxygen">{{ .PubDate }}</span>
+                </div>
+            </a>
+            {{ end }}
+        </div>
+    </article>
+    <footer class="footer">     
+        <div class="footer__block footer__block_form form">
+            <h2 class="form__title content__text_font_oxygen">Stay in Touch</h2>
+            <form class="form__block content__text_font_roboto">
+                <input class="form__input" placeholder="Enter your email address">
+                <input class="form__button" type="submit" value="Submit">
+            </form>
+            </div>
+        <div class="footer__style">
+            <div class="footer__block footer__block_menu">
+                <span class="footer__logo content__text_font_lora">Escape.</span>
+                <nav class="footer__menu content__text_font_oxygen">
+                    <a href="#" class="footer__link content__link">HOME</a>
+                    <a href="#" class="footer__link content__link">CATEGORIES</a>
+                    <a href="#" class="footer__link content__link">ABOUT</a>
+                    <a href="#" class="footer__link content__link">CONTACT</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
