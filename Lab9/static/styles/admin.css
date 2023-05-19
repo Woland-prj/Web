@@ -486,7 +486,7 @@ body {
     width: 26px;
     height: 26px;
     margin-right: 10px;
-    background: linear-gradient(0deg, #F7F7F7, #F7F7F7), url(.jpg);
+    background: linear-gradient(0deg, #F7F7F7, #F7F7F7);
     border-radius: 50%;
 }
 

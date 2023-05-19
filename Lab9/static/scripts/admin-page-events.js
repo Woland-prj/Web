@@ -180,46 +180,6 @@ function clearBigImg(evt) {
     text_new.classList.remove('content__hide');
 }
 
-function imageToBase64(imgFile) {
-    return new Promise(resolve => {
-        let reader = new FileReader();
-        reader.onload = () => {
-            resolve(reader.result);
-        }
-        reader.readAsDataURL(imgFile);
-    });
-}
-
-function validateData(data) {
-    let valid = true;
-    for (const pair of data.entries()) {
-        if(pair[1] == '') {
-            console.log(`${pair[0]} is blank, cannot publish`);
-            valid = false;
-        }
-    }
-    return valid;
-}
-
-async function printData() {
-    let form = document.getElementById('post-form');
-    let data = new FormData(form);
-    let object = {};
-    if (validateData(data)) {
-        data.forEach(function(value, key){
-            object[key] = value;
-        });
-        const base64avatar = await imageToBase64(object['author_avatar']);
-        const base64post = await imageToBase64(object['post_image']);
-        const base64card = await imageToBase64(object['card_image']);
-        object['author_avatar'] = base64avatar;
-        object['post_image'] = base64post;
-        object['card_image'] = base64card;
-        let json = JSON.stringify(object);
-        console.log(json);
-    }
-}
-
 document.getElementById('author_avatar').addEventListener('change', loadAvatar);
 document.getElementById('post_image').addEventListener('change', loadPostImage);
 document.getElementById('card_image').addEventListener('change', loadCardImage);
@@ -230,4 +190,3 @@ document.getElementById('publish_date').addEventListener('change', loadDate);
 document.getElementById('remove-avatar-btn').addEventListener('click', clearAvatar);
 document.getElementById('remove-small-btn').addEventListener('click', clearSmallImg);
 document.getElementById('remove-big-btn').addEventListener('click', clearBigImg);
-document.getElementById('submit-btn').addEventListener('click', printData);
