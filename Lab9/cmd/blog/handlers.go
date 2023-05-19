@@ -2,7 +2,9 @@ package main
 
 import (
 	"database/sql"
+	"encoding/json"
 	"html/template"
+	"io"
 	"log"
 	"net/http"
 	"strconv"
@@ -33,6 +35,17 @@ type postData struct {
 	Subtitle string `db:"subtitle"`
 	MainImg  string `db:"image_url"`
 	Text     string `db:"content"`
+}
+
+type postRequest struct {
+	Title     string `json:"title"`
+	Subtitle  string `json:"description"`
+	Author    string `json:"author_name"`
+	AuthorImg string `json:"author_avatar"`
+	PubDate   string `json:"publish_date"`
+	PostImg   string `json:"post_image"`
+	CardImg   string `json:"card_image"`
+	Text      string `json:"text"`
 }
 
 func featuredPosts(client *sqlx.DB) ([]*postsData, error) {
@@ -223,4 +236,26 @@ func admin(w http.ResponseWriter, r *http.Request) {
 	}
 
 	log.Println("Request completed successfully")
+}
+
+func createPost(client *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		reqData, err := io.ReadAll(r.Body)
+		if err != nil {
+			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+			log.Println(err.Error())
+			return
+		}
+
+		var req postRequest
+
+		err = json.Unmarshal(reqData, &req) // Отдали reqData и req на парсинг библиотеке json
+		if err != nil {
+			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+			log.Println(err.Error(), "lolololo")
+			return
+		}
+
+		log.Println(req)
+	}
 }

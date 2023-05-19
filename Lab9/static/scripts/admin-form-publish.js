@@ -8,6 +8,15 @@ function imageToBase64(imgFile) {
     });
 }
 
+function convertDate(date) {
+    let strArr = date.split('-');
+    let day = strArr[2];
+    let month = strArr[1];
+    let year = strArr[0];
+    let conv_date = day + '/' + month + '/' + year;
+    return conv_date;
+}
+
 function validateData(data) {
     let valid = true;
     for (const pair of data.entries()) {
@@ -36,7 +45,7 @@ async function printData() {
 }
 
 async function sendData(data) {
-    return await fetch('/api/create-post/', {
+    return await fetch('/api/post/', {
         method: 'POST',
         headers: { 'Content-Type': 'multipart/form-data' },
         body: data,
@@ -51,9 +60,11 @@ async function publishPost(evt) {
         const base64avatar = await imageToBase64(data.get('author_avatar'));
         const base64post = await imageToBase64(data.get('post_image'));
         const base64card = await imageToBase64(data.get('card_image'));
+        const conv_date = convertDate(data.get('publish_date'));
         data.set('author_avatar', base64avatar);
         data.set('post_image', base64post);
         data.set('card_image', base64card);
+        data.set('publish_date', conv_date);
         sendData(data);
     }
 }

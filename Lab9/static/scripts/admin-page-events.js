@@ -124,14 +124,19 @@ function loadName(evt) {
     }
 }
 
-function loadDate(evt) {
-    let card_date = document.getElementById('card-date');
-    let field = document.getElementById('publish_date')
-    let strArr = evt.target.value.split('-');
+function convertDate(date) {
+    let strArr = date.split('-');
     let day = strArr[2];
     let month = strArr[1];
     let year = strArr[0];
-    card_date.textContent = day + '/' + month + '/' + year;
+    let conv_date = day + '/' + month + '/' + year;
+    return conv_date;
+}
+
+function loadDate(evt) {
+    let card_date = document.getElementById('card-date');
+    let field = document.getElementById('publish_date')
+    card_date.textContent = convertDate(evt.target.value);
     field.classList.add('fields__input_not-gap')
     if(evt.target.value == '') {
         card_date.textContent = 'dd/mm/gggg';
