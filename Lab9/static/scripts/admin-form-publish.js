@@ -2,9 +2,10 @@ function imageToBase64(imgFile) {
     return new Promise(resolve => {
         let reader = new FileReader();
         reader.onload = () => {
-            resolve(reader.result);
+            console.log(btoa(reader.result));
+            resolve(btoa(reader.result));
         }
-        reader.readAsDataURL(imgFile);
+        reader.readAsBinaryString(imgFile);
     });
 }
 
@@ -52,20 +53,35 @@ async function sendData(data) {
     });
 }
 
+async function formToJSON(data) {
+    let obj = {};
+    obj['author_avatar_name'] = data.get('author_avatar').name;
+    console.log(obj['author_avatar_name']);
+    obj['post_image_name'] = data.get('post_image').name;
+    obj['card_image_name'] = data.get('card_image').name;
+    const base64avatar = await imageToBase64(data.get('author_avatar'));
+    const base64post = await imageToBase64(data.get('post_image'));
+    const base64card = await imageToBase64(data.get('card_image'));
+    const conv_date = convertDate(data.get('publish_date'));
+    data.set('author_avatar', base64avatar);
+    data.set('post_image', base64post);
+    data.set('card_image', base64card);
+    data.set('publish_date', conv_date);
+    data.forEach(function(value, key) {
+        obj[key] = value;
+    });
+    return JSON.stringify(obj)
+}
+
 async function publishPost(evt) {
     evt.preventDefault();
     let form = document.getElementById('post-form');
     let data = new FormData(form);
     if (validateData(data)) {
-        const base64avatar = await imageToBase64(data.get('author_avatar'));
-        const base64post = await imageToBase64(data.get('post_image'));
-        const base64card = await imageToBase64(data.get('card_image'));
-        const conv_date = convertDate(data.get('publish_date'));
-        data.set('author_avatar', base64avatar);
-        data.set('post_image', base64post);
-        data.set('card_image', base64card);
-        data.set('publish_date', conv_date);
-        sendData(data);
+        let c_data = await formToJSON(data);
+        console.log(data);
+        console.log(c_data);
+        sendData(c_data);
     }
 }
 

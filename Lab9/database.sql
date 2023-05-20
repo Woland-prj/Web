@@ -2,30 +2,32 @@
 
 CREATE TABLE post
 (
-    `post_id`    INT NOT NULL AUTO_INCREMENT,
-    `title`      VARCHAR(255) NOT NULL,
-    `subtitle`   VARCHAR(255) NOT NULL,
-    `image_url`  VARCHAR(255) NOT NULL,
-    `author`     VARCHAR(255) NOT NULL,
-    `author_url` VARCHAR(255) NOT NULL,
-    `pub_date`   VARCHAR(255) NOT NULL, 
-    `featured`   TINYINT(1) DEFAULT 0,
+    `post_id`         INT NOT NULL AUTO_INCREMENT,
+    `title`           VARCHAR(255) NOT NULL,
+    `subtitle`        VARCHAR(255) NOT NULL,
+    `post_image_url`  VARCHAR(255) NOT NULL,
+    `card_image_url`  VARCHAR(255) NOT NULL,
+    `image_modifer`   VARCHAR(255),
+    `author`          VARCHAR(255) NOT NULL,
+    `author_url`      VARCHAR(255) NOT NULL,
+    `pub_date`        VARCHAR(255) NOT NULL, 
+    `featured`        TINYINT(1) DEFAULT 0,
     PRIMARY KEY (`post_id`) 
 ) ENGINE = InnoDB
 CHARACTER SET = utf8mb4
 COLLATE utf8mb4_unicode_ci
 ;
 
-ALTER TABLE post ADD content TEXT NOT NULL;
+INSERT INTO post (title, subtitle, image_modifer, post_image_url, card_image_url, author, author_url, pub_date, featured) VALUES ('The Road Ahead', 'The road ahead might be paved - it might not be.', 'article-feature article-feature_left', '/static/images/the_road_ahead_image.png', '/static/images/the_road_ahead_image.png', 'Mat Vogels', '/static/images/Mat_Vogels_avatar.jpg', '29/05/2015', 1);
+INSERT INTO post (title, subtitle, image_modifer, post_image_url, card_image_url, author, author_url, pub_date, featured) VALUES ('From Top Down', 'Once a year, go someplace you have never been before.', 'article-feature article-feature_right', '/static/images/from_top_down_image.png', '/static/images/from_top_down_image.png' 'William Wong', '/static/images/William_Wong_avatar.jpg', '29/05/2015', 1);
+INSERT INTO post (title, subtitle, post_image_url, card_image_url, author, author_url, pub_date, featured) VALUES ('Still Standing Tall', 'Life begins at the end of your comfort zone.', '/static/images/still_standing_tall_image.jpg', '/static/images/still_standing_tall_image.jpg', 'William Wong', '/static/images/William_Wong_avatar.jpg', '29/05/2015', 0);
+INSERT INTO post (title, subtitle, post_image_url, card_image_url, author, author_url, pub_date, featured) VALUES ('Sunny Side Up', 'No place is ever as bad as they tell you it is going to be.', '/static/images/sunny_side_up_image.png', '/static/images/sunny_side_up_image.png', 'Mat Vogels', '/static/images/Mat_Vogels_avatar.jpg', '29/05/2015', 0);
+INSERT INTO post (title, subtitle, post_image_url, card_image_url, author, author_url, pub_date, featured) VALUES ('Water Falls', 'We travel not to escape life, but for life not to escape us.', '/static/images/water_falls_image.png', '/static/images/water_falls_image.png', 'Mat Vogels', '/static/images/Mat_Vogels_avatar.jpg', '29/05/2015', 0);
+INSERT INTO post (title, subtitle, post_image_url, card_image_url, author, author_url, pub_date, featured) VALUES ('Through the Mist', 'Travel makes you see what a tiny place you occupy in the world.', '/static/images/through_the_mist_image.png', '/static/images/through_the_mist_image.png', 'William Wong', '/static/images/William_Wong_avatar.jpg', '29/05/2015', 0);
+INSERT INTO post (title, subtitle, post_image_url, card_image_url, author, author_url, pub_date, featured) VALUES ('Awaken Early', 'Not all those who wander are lost.', '/static/images/awaken_early_image.png', '/static/images/awaken_early_image.png', 'Mat Vogels', '/static/images/Mat_Vogels_avatar.jpg', '29/05/2015', 0);
+INSERT INTO post (title, subtitle, post_image_url, card_image_url, author, author_url, pub_date, featured) VALUES ('Try it Always', 'The world is a book, and those who do not travel read only one page.', '/static/images/try_it_always_image.jpg', '/static/images/try_it_always_image.jpg', 'Mat Vogels', '/static/images/Mat_Vogels_avatar.jpg', '29/05/2015', 0);
 
-INSERT INTO post (title, subtitle, image_url, author, author_url, pub_date, featured) VALUES ('The Road Ahead', 'The road ahead might be paved - it might not be.', 'article-feature article-feature_left', 'Mat Vogels', '/static/images/Mat_Vogels_avatar.jpg', '29/05/2015', 1);
-INSERT INTO post (title, subtitle, image_url, author, author_url, pub_date, featured) VALUES ('From Top Down', 'Once a year, go someplace you have never been before.', 'article-feature article-feature_right', 'William Wong', '/static/images/William_Wong_avatar.jpg', '29/05/2015', 1);
-INSERT INTO post (title, subtitle, image_url, author, author_url, pub_date, featured) VALUES ('Still Standing Tall', 'Life begins at the end of your comfort zone.', '/static/images/still_standing_tall_image.jpg', 'William Wong', '/static/images/William_Wong_avatar.jpg', '29/05/2015', 0);
-INSERT INTO post (title, subtitle, image_url, author, author_url, pub_date, featured) VALUES ('Sunny Side Up', 'No place is ever as bad as they tell you it is going to be.', '/static/images/sunny_side_up_image.png', 'Mat Vogels', '/static/images/Mat_Vogels_avatar.jpg', '29/05/2015', 0);
-INSERT INTO post (title, subtitle, image_url, author, author_url, pub_date, featured) VALUES ('Water Falls', 'We travel not to escape life, but for life not to escape us.', '/static/images/water_falls_image.png', 'Mat Vogels', '/static/images/Mat_Vogels_avatar.jpg', '29/05/2015', 0);
-INSERT INTO post (title, subtitle, image_url, author, author_url, pub_date, featured) VALUES ('Through the Mist', 'Travel makes you see what a tiny place you occupy in the world.', '/static/images/through_the_mist_image.png', 'William Wong', '/static/images/William_Wong_avatar.jpg', '29/05/2015', 0);
-INSERT INTO post (title, subtitle, image_url, author, author_url, pub_date, featured) VALUES ('Awaken Early', 'Not all those who wander are lost.', '/static/images/awaken_early_image.png', 'Mat Vogels', '/static/images/Mat_Vogels_avatar.jpg', '29/05/2015', 0);
-INSERT INTO post (title, subtitle, image_url, author, author_url, pub_date, featured) VALUES ('Try it Always', 'The world is a book, and those who do not travel read only one page.', '/static/images/try_it_always_image.jpg', 'Mat Vogels', '/static/images/Mat_Vogels_avatar.jpg', '29/05/2015', 0);
+ALTER TABLE post ADD content TEXT NOT NULL;
 
 UPDATE post SET content = "Dark spruce forest frowned on either side the frozen waterway. The trees had been stripped by a recent wind of their white covering of frost, and they seemed to lean towards each other, black and ominous, in the fading light. A vast silence reigned over the land. The land it self was a desolation, lifeless, without movement, so lone and cold that the spirit of it was not even that of sadness. There was a hint in it of laughter, but of a laughter more terrible than any sadness—a laughter that was mirthless as the smile of the sphinx, a laughter cold as the frost and partaking of the grimness of infallibility. It was the masterful and incommunicable wisdom of eternity laughing at the futility of life and the effort of life. It was the Wild, the savage, frozen-hearted Northland Wild.
 

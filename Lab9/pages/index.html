@@ -65,7 +65,7 @@
         <div class="article-section__block article-section__block_recent">
             {{ range .Recent }}
             <a class="article-recent content__link" href="{{ .PostURL }}">
-                <img src="{{ .MainImg }}" alt="{{ .Title }} image">
+                <img src="{{ .MainImg }}" class="article-recent__image" alt="{{ .Title }} image">
                 <div class="article-recent__text">
                     <h3 class="article-recent__title content__text_font_lora">{{ .Title }}</h3>
                     <p class="article-recent__description content__text_font_oxygen">{{ .Subtitle }}</p>

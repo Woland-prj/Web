@@ -2,11 +2,13 @@ package main
 
 import (
 	"database/sql"
+	"encoding/base64"
 	"encoding/json"
 	"html/template"
 	"io"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 
 	"github.com/gorilla/mux"
@@ -23,7 +25,7 @@ type postsData struct {
 	Title      string `db:"title"`
 	Subtitle   string `db:"subtitle"`
 	ImgModifer string `db:"image_modifer"`
-	MainImg    string `db:"image_url"`
+	MainImg    string `db:"card_image_url"`
 	Author     string `db:"author"`
 	AuthorImg  string `db:"author_url"`
 	PubDate    string `db:"pub_date"`
@@ -33,19 +35,22 @@ type postsData struct {
 type postData struct {
 	Title    string `db:"title"`
 	Subtitle string `db:"subtitle"`
-	MainImg  string `db:"image_url"`
+	MainImg  string `db:"post_image_url"`
 	Text     string `db:"content"`
 }
 
 type postRequest struct {
-	Title     string `json:"title"`
-	Subtitle  string `json:"description"`
-	Author    string `json:"author_name"`
-	AuthorImg string `json:"author_avatar"`
-	PubDate   string `json:"publish_date"`
-	PostImg   string `json:"post_image"`
-	CardImg   string `json:"card_image"`
-	Text      string `json:"text"`
+	Title         string `json:"title"`
+	Subtitle      string `json:"description"`
+	Author        string `json:"author_name"`
+	AuthorImg     string `json:"author_avatar"`
+	AuthorImgName string `json:"author_avatar_name"`
+	PubDate       string `json:"publish_date"`
+	PostImg       string `json:"post_image"`
+	PostImgName   string `json:"post_image_name"`
+	CardImg       string `json:"card_image"`
+	CardImgName   string `json:"card_image_name"`
+	Text          string `json:"text"`
 }
 
 func featuredPosts(client *sqlx.DB) ([]*postsData, error) {
@@ -55,7 +60,7 @@ func featuredPosts(client *sqlx.DB) ([]*postsData, error) {
 			title,
 			subtitle,
 			image_modifer,
-			image_url,
+			card_image_url,
 			author,
 			author_url,
 			pub_date
@@ -86,7 +91,7 @@ func recentPosts(client *sqlx.DB) ([]*postsData, error) {
 			post_id,
 			title,
 			subtitle,
-			image_url,
+			card_image_url,
 			author,
 			author_url,
 			pub_date
@@ -198,7 +203,7 @@ func postByID(client *sqlx.DB, postId int) (postData, error) {
 		SELECT
 			title,
 			subtitle,
-			image_url,
+			post_image_url,
 			content
 		FROM
 			post
@@ -249,13 +254,88 @@ func createPost(client *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 
 		var req postRequest
 
-		err = json.Unmarshal(reqData, &req) // Отдали reqData и req на парсинг библиотеке json
+		err = json.Unmarshal(reqData, &req)
 		if err != nil {
 			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
-			log.Println(err.Error(), "lolololo")
+			log.Println(err.Error())
 			return
 		}
 
-		log.Println(req)
+		err = imageEncode(req.AuthorImg, req.AuthorImgName)
+		if err != nil {
+			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+			log.Println(err.Error())
+			return
+		}
+
+		err = imageEncode(req.CardImg, req.CardImgName)
+		if err != nil {
+			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+			log.Println(err.Error())
+			return
+		}
+
+		err = imageEncode(req.PostImg, req.PostImgName)
+		if err != nil {
+			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+			log.Println(err.Error())
+			return
+		}
+
+		err = savePost(client, req)
+		if err != nil {
+			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+			log.Println(err.Error())
+			return
+		}
 	}
+}
+
+func imageEncode(codeImg, imgName string) error {
+	img, err := base64.StdEncoding.DecodeString(codeImg)
+
+	if err != nil {
+		return err
+	}
+
+	file, err := os.Create("static/images/" + imgName)
+
+	if err != nil {
+		return err
+	}
+
+	_, err = file.Write(img)
+
+	return nil
+}
+
+func savePost(client *sqlx.DB, req postRequest) error {
+	const path = "/static/images/"
+	const query = `
+       INSERT INTO
+           post
+       (
+           title,
+		   subtitle,
+		   post_image_url,
+		   card_image_url,
+		   author,
+		   author_url,
+		   pub_date,
+		   content
+       )
+       VALUES
+       (
+           ?,
+           ?,
+		   ?,
+		   ?,
+		   ?,
+		   ?,
+		   ?,
+		   ?
+       )
+   `
+	_, err := client.Exec(query, req.Title, req.Subtitle, path+req.PostImgName, path+req.CardImgName, req.Author, path+req.AuthorImgName, req.PubDate, req.Text) // Сами данные передаются через аргументы к ф-ии Exec
+	return err
 }
