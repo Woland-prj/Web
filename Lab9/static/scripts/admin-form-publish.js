@@ -21,6 +21,10 @@ function convertDate(date) {
 function validateData(data) {
     let valid = true;
     for (const pair of data.entries()) {
+        if(pair[1].name == '' && pair[1].name != undefined)  {
+            console.log(`${pair[0]} is blank, cannot publish`);
+            valid = false;
+        }
         if(pair[1] == '') {
             console.log(`${pair[0]} is blank, cannot publish`);
             valid = false;
