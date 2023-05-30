@@ -23,8 +23,10 @@ function printMessage(state) {
     const valid_msg = document.getElementById('valid_msg');
     if(state) {
         valid_msg.classList.remove('content__hide');
+        error_msg.classList.add('content__hide');
     } else {
         error_msg.classList.remove('content__hide');
+        valid_msg.classList.add('content__hide');
     }
 }
 
@@ -33,10 +35,14 @@ function validateData(data) {
     for (const pair of data.entries()) {
         if(pair[1].name == '' && pair[1].name != undefined)  {
             console.log(`${pair[0]} is blank, cannot publish`);
+            const blank_field = document.getElementById(pair[0]).previousElementSibling;
+            blank_field.classList.add('fields__input_invalid-image');
             valid = false;
         }
         if(pair[1] == '') {
             console.log(`${pair[0]} is blank, cannot publish`);
+            const blank_field = document.getElementById(pair[0]);
+            blank_field.classList.add('fields__input_invalid');
             valid = false;
         }
     }

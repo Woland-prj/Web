@@ -91,6 +91,7 @@ function loadTitle(evt) {
     let field = document.getElementById('title')
     post_title.textContent = evt.target.value;
     card_title.textContent = evt.target.value;
+    field.classList.remove('fields__input_invalid')
     field.classList.add('fields__input_not-gap');
     if(evt.target.value == '') {
         post_title.textContent = 'New Post';
@@ -139,7 +140,7 @@ function loadDate(evt) {
     card_date.textContent = convertDate(evt.target.value);
     field.classList.add('fields__input_not-gap')
     if(evt.target.value == '') {
-        card_date.textContent = 'dd/mm/gggg';
+        card_date.textContent = 'mm/dd/yyyy';
         field.classList.remove('fields__input_not-gap');
     }
 }
@@ -149,6 +150,7 @@ function clearAvatar(evt) {
     let card = document.getElementById('author-image-card');
     let input = document.getElementById('author_avatar');
     main.innerHTML = '<img src="../static/images/camera.svg">';
+    main.classList.remove('fields__input_invalid-image');
     card.innerHTML = '';
     input.value = '';
     let button_old = document.getElementById('upload-new-author');
@@ -162,7 +164,8 @@ function clearSmallImg(evt) {
     let card = document.getElementById('image-small-post');
     let input = document.getElementById('card_image');
     main.classList.add('fields__upload-image');
-    main.innerHTML = '<div class="content__button fields__button"> <img class="fields__upload-pic" src="../static/images/camera.svg"> <label for="post_image" class="fields__upload-text">Upload</label> </div>';
+    main.classList.remove('fields__input_invalid-image');
+    main.innerHTML = '<div class="content__button fields__button"> <img class="fields__upload-pic" src="../static/images/camera.svg"> <label for="card_image" class="fields__upload-text">Upload</label> </div>';
     card.innerHTML = '';
     input.value = '';
     let button_old = document.getElementById('upload-new-small');
@@ -176,6 +179,7 @@ function clearBigImg(evt) {
     let post = document.getElementById('image-big-post');
     let input = document.getElementById('post_image');
     main.classList.add('fields__upload-image');
+    main.classList.remove('fields__input_invalid-image');
     main.innerHTML = '<div class="content__button fields__button"> <img class="fields__upload-pic" src="../static/images/camera.svg"> <label for="post_image" class="fields__upload-text">Upload</label> </div>';
     post.innerHTML = '';
     input.value = '';
@@ -185,13 +189,50 @@ function clearBigImg(evt) {
     text_new.classList.remove('content__hide');
 }
 
-document.getElementById('author_avatar').addEventListener('change', loadAvatar);
-document.getElementById('post_image').addEventListener('change', loadPostImage);
-document.getElementById('card_image').addEventListener('change', loadCardImage);
-document.getElementById('title').addEventListener('change', loadTitle);
-document.getElementById('description').addEventListener('change', loadDescription);
-document.getElementById('author_name').addEventListener('change', loadName);
-document.getElementById('publish_date').addEventListener('change', loadDate);
-document.getElementById('remove-avatar-btn').addEventListener('click', clearAvatar);
-document.getElementById('remove-small-btn').addEventListener('click', clearSmallImg);
-document.getElementById('remove-big-btn').addEventListener('click', clearBigImg);
+function removeInvalid(evt) {
+    const field = evt.target;
+    field.classList.remove('fields__input_invalid');
+}
+
+function removeInvalidImg(evt) {
+    const field = evt.target.previousElementSibling;
+    field.classList.remove('fields__input_invalid-image');
+}
+
+const avatar = document.getElementById('author_avatar');
+const post_image = document.getElementById('post_image');
+const card_image = document.getElementById('card_image');
+const title = document.getElementById('title');
+const description = document.getElementById('description');
+const author_name = document.getElementById('author_name');
+const date = document.getElementById('publish_date');
+const remove_avatar_btn = document.getElementById('remove-avatar-btn');
+const remove_small_btn = document.getElementById('remove-small-btn');
+const remove_big_btn = document.getElementById('remove-big-btn');
+
+avatar.addEventListener('change', loadAvatar);
+post_image.addEventListener('change', loadPostImage);
+card_image.addEventListener('change', loadCardImage);
+title.addEventListener('change', loadTitle);
+title.addEventListener('click', removeInvalid);
+description.addEventListener('change', loadDescription);
+description.addEventListener('click', removeInvalid);
+author_name.addEventListener('change', loadName);
+author_name.addEventListener('click', removeInvalid);
+date.addEventListener('change', loadDate);
+date.addEventListener('click', removeInvalid);
+remove_avatar_btn.addEventListener('click', clearAvatar);
+remove_small_btn.addEventListener('click', clearSmallImg);
+remove_big_btn.addEventListener('click', clearBigImg);
+
+// document.getElementById('author_avatar').addEventListener('change', loadAvatar);
+// document.getElementById('post_image').addEventListener('change', loadPostImage);
+// document.getElementById('card_image').addEventListener('change', loadCardImage);
+// document.getElementById('title').addEventListener('change', loadTitle);
+// document.getElementById('title').addEventListener('click', removeInvalid);
+// document.getElementById('description').addEventListener('change', loadDescription);
+// document.getElementById('author_name').addEventListener('change', loadName);
+// document.getElementById('publish_date').addEventListener('change', loadDate);
+// document.getElementById('remove-avatar-btn').addEventListener('click', clearAvatar);
+// document.getElementById('remove-small-btn').addEventListener('click', clearSmallImg);
+// document.getElementById('remove-big-btn').addEventListener('click', clearBigImg);

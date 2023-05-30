@@ -45,18 +45,18 @@
                 <div class="information__wrapper">
                     <div class="information__fields fields">
                         <lable class="fields__lable">Title</lable>
-                        <input class="fields__input" id="title" placeholder="New Post" name="title">
+                        <input class="fields__input" id="title" placeholder="New Post" name="title" autocomplete="off">
                         <lable class="fields__lable">Short description</lable>
-                        <input class="fields__input" id="description" name="description" placeholder="Please, enter any description">
+                        <input class="fields__input" id="description" name="description" placeholder="Please, enter any description" autocomplete="off">
                         <lable class="fields__lable">Author name</lable>
-                        <input class="fields__input" id="author_name" name="author_name" placeholder="Enter author name">
+                        <input class="fields__input" id="author_name" name="author_name" placeholder="Enter author name" autocomplete="off">
                         <lable class="fields__lable">Author Photo</lable>
                         <div class="fields__author-avatar-block">
                             <div class="fields__upload-image fields__upload-image_author" id="author-image-main">
                                 <img src="../static/images/camera.svg">
                             </div>
+                            <input id="author_avatar" class="fields__upload-text_btn" type="file" name="author_avatar" autocomplete="off">
                             <label for="author_avatar" class="fields__upload-text content__button" id="author-load-lable">Upload</label>
-                            <input id="author_avatar" class="fields__upload-text_btn" type="file" name="author_avatar">
                             <div class="fields__uplod-new-block uplod-new-block uplod-new-block_author content__hide" id="upload-new-author">
                                 <div class="uplod-new-block__button">
                                     <img src="../static/images/camera.svg" class="uplod-new-block__icon">
@@ -69,7 +69,7 @@
                             </div>
                         </div>
                         <lable class="fields__lable">Publish Date</lable>
-                        <input class="fields__input" type="date" id="publish_date" name="publish_date">
+                        <input class="fields__input" type="date" id="publish_date" name="publish_date" autocomplete="off">
                         <lable class="fields__lable">Hero Image</lable>
                         <div class="fields__upload-image fields__upload-image_post" id="image-big">
                             <div class="content__button fields__button">
@@ -77,7 +77,7 @@
                                 <label for="post_image" class="fields__upload-text">Upload</label>
                             </div>
                         </div>
-                        <input id="post_image" class="fields__upload-text_btn" type="file" name="post_image">
+                        <input id="post_image" class="fields__upload-text_btn" type="file" name="post_image" autocomplete="off">
                         <span class="fields__upload-image-description" id="upload-description-big">Size up to 10mb. Format: png, jpeg, gif.</span>
                         <div class="fields__uplod-new-block uplod-new-block content__hide" id="upload-new-big">
                             <div class="uplod-new-block__button content__button">
@@ -96,7 +96,7 @@
                                 <label for="card_image" class="fields__upload-text">Upload</label>
                             </div>
                         </div>
-                        <input id="card_image" class="fields__upload-text_btn" type="file" name="card_image">
+                        <input id="card_image" class="fields__upload-text_btn" type="file" name="card_image" autocomplete="off">
                         <span class="fields__upload-image-description" id="upload-description-small">Size up to 5mb. Format: png, jpeg, gif.</span>
                         <div class="fields__uplod-new-block uplod-new-block content__hide" id="upload-new-small">
                             <div class="uplod-new-block__button content__button">
@@ -138,7 +138,7 @@
                                             <div class="bottom__author-image" id="author-image-card"></div>
                                             <span class="bottom__author-name" id="card-name">Enter author name</span>
                                         </div>
-                                        <span class="bottom__date" id="card-date">dd/mm/gggg</span>
+                                        <span class="bottom__date" id="card-date">mm/dd/yyyy</span>
                                     </div>
                                 </div>
                             </div>
