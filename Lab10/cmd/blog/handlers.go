@@ -21,15 +21,14 @@ type indexData struct {
 }
 
 type postsData struct {
-	PostId     string `db:"post_id"`
-	Title      string `db:"title"`
-	Subtitle   string `db:"subtitle"`
-	ImgModifer string `db:"image_modifer"`
-	MainImg    string `db:"card_image_url"`
-	Author     string `db:"author"`
-	AuthorImg  string `db:"author_url"`
-	PubDate    string `db:"pub_date"`
-	PostURL    string
+	PostId    string `db:"post_id"`
+	Title     string `db:"title"`
+	Subtitle  string `db:"subtitle"`
+	MainImg   string `db:"card_image_url"`
+	Author    string `db:"author"`
+	AuthorImg string `db:"author_url"`
+	PubDate   string `db:"pub_date"`
+	PostURL   string
 }
 
 type postData struct {
@@ -59,7 +58,6 @@ func featuredPosts(client *sqlx.DB) ([]*postsData, error) {
 			post_id,
 			title,
 			subtitle,
-			image_modifer,
 			card_image_url,
 			author,
 			author_url,

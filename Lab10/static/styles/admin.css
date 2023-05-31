@@ -16,7 +16,6 @@ body {
     animation: message_view .3s ease;
 }
 
-
 @keyframes message_view {
     from {
         transform: scaleY(0) translateY(-100%);
@@ -66,7 +65,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 
 .header {
     height: 74px;

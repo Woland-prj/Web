@@ -16,10 +16,10 @@
         <div class="header__block header__block_menu">
             <a href="/home" class="header__logo content__link"><span class="content__text_font_lora">Escape.</span></a>
             <nav class="header__menu content__text_font_oxygen">
-                <a href="#" class="header__link content__link">home</a>
-                <a href="#" class="header__link content__link">categories</a>
-                <a href="#" class="header__link content__link">about</a>
-                <a href="#" class="header__link content__link">contact</a>
+                <a href="#" class="header__link content__link content__button">home</a>
+                <a href="#" class="header__link content__link content__button">categories</a>
+                <a href="#" class="header__link content__link content__button">about</a>
+                <a href="#" class="header__link content__link content__button">contact</a>
             </nav>
         </div>
         <div class="header__block header__block_title">
@@ -27,18 +27,18 @@
                 <h1 class="header__title content__text_font_lora">Let's do it together.</h1>
                 <p class="header__description content__text_font_oxygen">We travel the world in search of stories. Come
                     along for the ride.</p>
-                <button class="header__button content__text_font_oxygen">View Latest Posts</button>
+                <button class="header__button content__text_font_oxygen content__button">View Latest Posts</button>
             </div>
         </div>
     </header>
     <div class="sub-nav__background">
         <div class="sub-nav content__text_font_lora">
-            <a href="#" class="sub-nav__link content__link">Nature</a>
-            <a href="#" class="sub-nav__link content__link">Photography</a>
-            <a href="#" class="sub-nav__link content__link">Relaxation</a>
-            <a href="#" class="sub-nav__link content__link">Vacation</a>
-            <a href="#" class="sub-nav__link content__link">Travel</a>
-            <a href="#" class="sub-nav__link content__link">Adventure</a>
+            <a href="#" class="sub-nav__link content__link content__button">Nature</a>
+            <a href="#" class="sub-nav__link content__link content__button">Photography</a>
+            <a href="#" class="sub-nav__link content__link content__button">Relaxation</a>
+            <a href="#" class="sub-nav__link content__link content__button">Vacation</a>
+            <a href="#" class="sub-nav__link content__link content__button">Travel</a>
+            <a href="#" class="sub-nav__link content__link content__button">Adventure</a>
         </div>
     </div>
     <article class="article-section">
@@ -46,16 +46,21 @@
         <div class="article-section__block article-section__block_feature">
             {{ range .Featured }}
             <!-- <a href="{{ .PostURL }}" class="content__link"></a> -->
-                <a href="{{ .PostURL }}" class="article-feature article-feature_{{ .ImgModifer }}">
+                <a href="{{ .PostURL }}" class="article-feature">
                     <!-- <span class="article-feature_metka article-feature_metka_on content__text_font_oxygen"></span> -->
-                    <h3 class="article-feature__title content__text_font_lora">{{ .Title }}</h3>
-                    <p class="article-feature__description content__text_font_oxygen">{{ .Subtitle }}</p>
-                    <div class="article-feature__autor">
-                        <div class="article__autor_align">
-                            <img class="article-feature__avatar" src="{{ .AuthorImg }}" alt="{{ .Author }} avatar">
-                            <span class="article-feature__bottom-text content__text_font_oxygen">{{ .Author }}</span>
+                    <img class="article-feature__image" src="{{ .MainImg }}">
+                    <div class="article-feature__wrapper">
+                        <div class="article-feature__content">
+                            <h3 class="article-feature__title content__text_font_lora">{{ .Title }}</h3>
+                            <p class="article-feature__description content__text_font_oxygen">{{ .Subtitle }}</p>
+                            <div class="article-feature__autor">
+                                <div class="article__autor_align">
+                                    <img class="article-feature__avatar" src="{{ .AuthorImg }}" alt="{{ .Author }} avatar">
+                                    <span class="article-feature__bottom-text content__text_font_oxygen">{{ .Author }}</span>
+                                </div>
+                                <span class="article-feature__bottom-text content__text_font_oxygen">{{ .PubDate }}</span>
+                            </div>
                         </div>
-                        <span class="article-feature__bottom-text content__text_font_oxygen">{{ .PubDate }}</span>
                     </div>
                 </a>
             <!-- </a> -->
@@ -87,17 +92,17 @@
             <h2 class="form__title content__text_font_oxygen">Stay in Touch</h2>
             <form class="form__block content__text_font_roboto">
                 <input class="form__input" placeholder="Enter your email address">
-                <input class="form__button" type="submit" value="Submit">
+                <input class="form__button" type="submit" value="Submit" >
             </form>
             </div>
         <div class="footer__style">
             <div class="footer__block footer__block_menu">
                 <span class="footer__logo content__text_font_lora">Escape.</span>
                 <nav class="footer__menu content__text_font_oxygen">
-                    <a href="#" class="footer__link content__link">HOME</a>
-                    <a href="#" class="footer__link content__link">CATEGORIES</a>
-                    <a href="#" class="footer__link content__link">ABOUT</a>
-                    <a href="#" class="footer__link content__link">CONTACT</a>
+                    <a href="#" class="footer__link content__link content__button">HOME</a>
+                    <a href="#" class="footer__link content__link content__button">CATEGORIES</a>
+                    <a href="#" class="footer__link content__link content__button">ABOUT</a>
+                    <a href="#" class="footer__link content__link content__button">CONTACT</a>
                 </nav>
             </div>
         </div>

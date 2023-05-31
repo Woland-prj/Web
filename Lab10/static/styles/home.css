@@ -6,10 +6,22 @@
     width: auto;
     padding-top: 20px;
     color: #FFFFFF;
-}  
+}
+
+.content__button {
+    transition: all ease 0.28s;
+}
+
+.content__button:hover {
+    opacity: 0.8;
+}
+
+.content__button:active {
+    scale: 0.87;
+}
 
 .header__block {
-    width: 64%;
+    width: 930px;
     margin: 0 auto 0 auto;
 }
 
@@ -67,6 +79,7 @@
     margin: 31px;
     font-size: 13px;
     line-height: 1.54;
+    cursor: pointer;
 }
 
 .sub-nav {
@@ -90,7 +103,7 @@
 }
 
 .article-section {
-    width: 980px;
+    max-width: 930px;
     margin: 0 auto 108px auto ;
 }
 
@@ -119,22 +132,33 @@
 }
 
 .article-section__block_feature {
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .article-section__block_recent {
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
 .article-feature {
-    width: 420px;
-    height: 240px;
-    padding: 20px;
+    width: 460px;
+    height: 280px;
     color: #FFFFFF;
     text-decoration: none;
     position: relative;
     display: block;
+}
+
+.article-feature__wrapper {
+    width: 420px;
+    height: 240px;
+    padding: 20px;
+    display: flex;
+    align-items: end;
+}
+
+.article-feature__content {
+    width: 100%;
 }
 
 .article-feature_metka {
@@ -158,21 +182,23 @@
     display: none;
 }
 
-.article-feature_first {
-    background: url(/static/images/the_road_ahead_image.png);
-}
-
-.article-feature_second {
-    background: url(/static/images/from_top_down_image.png);
+.article-feature__image {
+    width: 460px;
+    height: 280px;
+    z-index: -1;
+    border-radius: 3px;
+    position: absolute;
+    object-fit: cover;
 }
 
 .article-feature__title {
-    margin: 137px 0 6px 0;
+    margin: 0 0 6px 0;
     font-size: 27px;
     line-height: 1.111;
 }
 
 .article-feature__description {
+    margin: 0 0 8px 0;
     font-size: 14px;
     line-height: 1.785;
     color: rgba(255, 255, 255, 0.7);
@@ -209,7 +235,7 @@
 }
 
 .article-recent__image {
-    width: 296px;
+    width: inherit;
     height: 150px;
     object-fit: cover;
 }
@@ -260,4 +286,30 @@
 .article-recent__date {
     font-size: 12px;
     line-height: 2.92;
+}
+
+@media screen and (max-width: 1024px) {
+    .header__block {
+        width: 705px;
+    }
+    
+    .article-section {
+        max-width: 705px;
+    }
+
+    .article-feature__image {
+        width: 345px;
+    }
+
+    .article-feature {
+        width: 345px;
+    }
+
+    .article-feature__wrapper {
+        width: 305px;
+    }
+
+    .article-recent {
+        width: 222px;
+    }
 }
