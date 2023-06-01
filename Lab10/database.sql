@@ -7,7 +7,6 @@ CREATE TABLE post
     `subtitle`        VARCHAR(255) NOT NULL,
     `post_image_url`  VARCHAR(255) NOT NULL,
     `card_image_url`  VARCHAR(255) NOT NULL,
-    `image_modifer`   VARCHAR(255),
     `author`          VARCHAR(255) NOT NULL,
     `author_url`      VARCHAR(255) NOT NULL,
     `pub_date`        VARCHAR(255) NOT NULL, 
@@ -18,8 +17,8 @@ CHARACTER SET = utf8mb4
 COLLATE utf8mb4_unicode_ci
 ;
 
-INSERT INTO post (title, subtitle, image_modifer, post_image_url, card_image_url, author, author_url, pub_date, featured) VALUES ('The Road Ahead', 'The road ahead might be paved - it might not be.', 'article-feature article-feature_first', '/static/images/the_road_ahead_image.png', '/static/images/the_road_ahead_image.png', 'Mat Vogels', '/static/images/Mat_Vogels_avatar.jpg', '29/05/2015', 1);
-INSERT INTO post (title, subtitle, image_modifer, post_image_url, card_image_url, author, author_url, pub_date, featured) VALUES ('From Top Down', 'Once a year, go someplace you have never been before.', 'article-feature article-feature_second', '/static/images/from_top_down_image.png', '/static/images/from_top_down_image.png', 'William Wong', '/static/images/William_Wong_avatar.jpg', '29/05/2015', 1);
+INSERT INTO post (title, subtitle, post_image_url, card_image_url, author, author_url, pub_date, featured) VALUES ('The Road Ahead', 'The road ahead might be paved - it might not be.', '/static/images/the_road_ahead_image.png', '/static/images/the_road_ahead_image.png', 'Mat Vogels', '/static/images/Mat_Vogels_avatar.jpg', '29/05/2015', 1);
+INSERT INTO post (title, subtitle, post_image_url, card_image_url, author, author_url, pub_date, featured) VALUES ('From Top Down', 'Once a year, go someplace you have never been before.', '/static/images/from_top_down_image.png', '/static/images/from_top_down_image.png', 'William Wong', '/static/images/William_Wong_avatar.jpg', '29/05/2015', 1);
 INSERT INTO post (title, subtitle, post_image_url, card_image_url, author, author_url, pub_date, featured) VALUES ('Still Standing Tall', 'Life begins at the end of your comfort zone.', '/static/images/still_standing_tall_image.jpg', '/static/images/still_standing_tall_image.jpg', 'William Wong', '/static/images/William_Wong_avatar.jpg', '29/05/2015', 0);
 INSERT INTO post (title, subtitle, post_image_url, card_image_url, author, author_url, pub_date, featured) VALUES ('Sunny Side Up', 'No place is ever as bad as they tell you it is going to be.', '/static/images/sunny_side_up_image.png', '/static/images/sunny_side_up_image.png', 'Mat Vogels', '/static/images/Mat_Vogels_avatar.jpg', '29/05/2015', 0);
 INSERT INTO post (title, subtitle, post_image_url, card_image_url, author, author_url, pub_date, featured) VALUES ('Water Falls', 'We travel not to escape life, but for life not to escape us.', '/static/images/water_falls_image.png', '/static/images/water_falls_image.png', 'Mat Vogels', '/static/images/Mat_Vogels_avatar.jpg', '29/05/2015', 0);

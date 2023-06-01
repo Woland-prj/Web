@@ -88,14 +88,20 @@
     height: 65px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
     color: #768088;
 }
 
 .sub-nav__link {
     font-size: 14px;
-    line-height: 1.43;
+    line-height: 100%;
+    margin-right: 20px;
     text-align: center;
+}
+
+.sub-nav__link:last-child {
+    margin-right: 0;
 }
 
 .sub-nav__background {
@@ -126,18 +132,18 @@
 }
 
 .article-section__block {
-    display: flex;
-    flex-wrap: wrap;
     margin: 0;
 }
 
 .article-section__block_feature {
+    display: flex;
     justify-content: space-between;
 }
 
 .article-section__block_recent {
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .article-feature {
@@ -228,7 +234,6 @@
 }
 
 .article-recent {
-    margin-bottom: 23px;
     width: 296px;
     height: 291px;
     background-color: #FFFFFF;
@@ -297,6 +302,10 @@
         max-width: 705px;
     }
 
+    .article-section__block_recent {
+        gap: 18px;
+    }
+
     .article-feature__image {
         width: 345px;
     }
@@ -311,5 +320,76 @@
 
     .article-recent {
         width: 222px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header__block {
+        width: 398px;
+    }
+    
+    .article-section {
+        max-width: 705px;
+    }
+
+    .article-section__block_recent {
+        gap: 18px;
+    }
+
+    .article-feature__image {
+        width: 345px;
+    }
+
+    .article-feature {
+        width: 345px;
+    }
+
+    .article-feature__wrapper {
+        width: 305px;
+    }
+
+    .article-recent {
+        width: 222px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .header__block {
+        width: 398px;
+    }
+    
+    .article-section {
+        max-width: 442px;
+    }
+
+    .article-section__block_feature {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .article-section__block_recent {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .article-feature__image {
+        width: 100%;
+    }
+
+    .article-feature {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .article-feature:last-child {
+        margin-bottom: 0;
+    }
+
+    .article-feature__wrapper {
+        width: 402px;
+    }
+
+    .article-recent {
+        width: 100%;
     }
 }
