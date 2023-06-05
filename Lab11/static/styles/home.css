@@ -15,6 +15,18 @@ body._lock {
     align-items: center;
 }
 
+.header__style {
+    width: 100%;
+    height: 66px;
+    position: fixed;
+    transition: all 0.3s ease 0s;
+}
+
+.header__style._scroll {
+    background: rgba(35, 47, 56, 0.6);
+    backdrop-filter: blur(5px);
+}
+
 .header__wrapper {
     width: 74%;
     padding: 20px;
@@ -405,7 +417,8 @@ body._lock {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(35, 47, 56, 0.9);
+        background: rgba(35, 47, 56, 0.6);
+        backdrop-filter: blur(5px);
         transition: all 0.3s ease 0s;
         padding: 90px 0 0 0;
         overflow: auto;
