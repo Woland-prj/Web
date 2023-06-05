@@ -28,12 +28,14 @@
 }
 
 .footer {
+    position: relative;
     background: url(/static/images/footer_background.png);
     background-size: cover;
     background-position: center;
     height: 458px;;
     width: auto;
     color: #FFFFFF;
+    z-index: -2;
 }
 
 .footer__style {
@@ -59,6 +61,8 @@
 }
 
 .footer__block_form {
+    position: relative;
+    z-index: -1;
     height: 288px;
     justify-content: center;
     flex-direction: column;
