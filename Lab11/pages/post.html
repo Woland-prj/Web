@@ -11,13 +11,21 @@
     </head>
     <body class="content">
         <header class="header">
-            <div class="header__block">
+            <div class="header__style"></div>
+            <div class="header__block header__block_menu">
                 <a href="/home" class="header__logo content__link"><span class="content__text_font_lora">Escape.</span></a>
-                <nav class="header__menu content__text_font_oxygen">
-                    <a href="#" class="content__link header__link">HOME</a>
-                    <a href="#" class="content__link header__link">CATEGORIES</a>
-                    <a href="#" class="content__link header__link">ABOUT</a>
-                    <a href="#" class="content__link header__link">CONTACT</a>
+                <nav class="header__menu menu content__text_font_oxygen">
+                    <div class="menu__icon">
+                        <span></span>
+                    </div>
+                    <div class="menu__body">
+                        <ul class="menu__list">
+                            <a href="#" class="menu__link content__link content__button">home</a>
+                            <a href="#" class="menu__link content__link content__button">categories</a>
+                            <a href="#" class="menu__link content__link content__button">about</a>
+                            <a href="#" class="menu__link content__link content__button">contact</a>
+                        </ul>
+                    </div>
                 </nav>
             </div>
         </header>
@@ -53,5 +61,6 @@
                 </div>
             </div>
         </footer>
+        <script src="../static/scripts/menu-events.js" type="text/javascript"></script>
     </body>
 </html>

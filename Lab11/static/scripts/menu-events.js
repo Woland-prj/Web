@@ -8,9 +8,9 @@ if(iconMenu) {
         document.body.classList.toggle('_lock');
         iconMenu.classList.toggle('_active');
         menuBody.classList.toggle('_active');
-        // if (window.scrollY >= scrollTrigger || window.pageYOffset >= scrollTrigger) {
-        //     menu.classList.toggle('_scroll');
-        // }
+        if (window.scrollY >= scrollTrigger || window.pageYOffset >= scrollTrigger) {
+            menu.classList.toggle('_scroll');
+        }
     }) 
 }
 
