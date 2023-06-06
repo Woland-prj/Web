@@ -139,11 +139,11 @@ body._lock {
     padding: 20px;
     display: flex;
     align-items: end;
+    position: relative;
 }
 
 .article-feature__image {
     height: 280px;
-    z-index: -2;
     border-radius: 3px;
     max-width: 100%;
     object-fit: cover;
@@ -151,7 +151,6 @@ body._lock {
 }
 
 .article-feature__content {
-    z-index: -1;
     width: 100%;
 }
 

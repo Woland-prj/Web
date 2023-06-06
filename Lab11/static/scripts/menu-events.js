@@ -1,17 +1,23 @@
 const iconMenu = document.querySelector('.menu__icon');
+const iconClose = document.querySelector('.menu__close');
 const menu = document.querySelector('.header__style');
+const menuBody = document.querySelector('.menu__body');
 const scrollTrigger = 60;
 
 if(iconMenu) {
-    const menuBody = document.querySelector('.menu__body');
-    iconMenu.addEventListener('click', function(e) {
-        document.body.classList.toggle('_lock');
-        iconMenu.classList.toggle('_active');
-        menuBody.classList.toggle('_active');
-        if (window.scrollY >= scrollTrigger || window.pageYOffset >= scrollTrigger) {
-            menu.classList.toggle('_scroll');
-        }
-    }) 
+    iconMenu.addEventListener('click', toggleMenu) ; 
+}
+
+if(iconClose) {
+    iconClose.addEventListener('click', toggleMenu) ;
+}
+
+function toggleMenu() {
+    document.body.classList.toggle('_lock');
+    menuBody.classList.toggle('_active');
+    if (window.scrollY >= scrollTrigger || window.pageYOffset >= scrollTrigger) {
+        menu.classList.toggle('_scroll');
+    }
 }
 
 window.onscroll = function() {
